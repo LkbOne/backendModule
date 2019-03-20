@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.phoebe.youtiao.dao.api.ExpensesDao">
+    <resultMap id="BaseResultMap" type="expensesEntity">
+        <id column="id" property="id"/>
+        <result column="budget_id" property="budgetId"/>
+        <result column="account_book_id" property="accountBookId"/>
+        <result column="expense_date" property="expenseDate"/>
+        <result column="expenses" property="expenses"/>
+        <result column="type" property="type"/>
+        <result column="classification" property="classification"/>
+        <result column="status" property="status"/>
+        <result column="description" property="description"/>
+        <result column="create_time" property="createTime"/>
+        <result column="last_modify_time" property="lastModifyTime"/>
+    </resultMap>
+
+    <insert id="addExpenses" parameterType="expensesEntity">
+        INSERT INTO expenses(
+        `id`,
+        `budget_id`,
+        `account_book_id`,
+        `expense_date`,
+        `expenses`,
+        `type`,
+        `classification`,
+        `status`,
+        `create_time`,
+        `last_modify_time`,
+        `description`
+        )
+        VALUES (
+        #{id},
+        #{budgetId},
+        #{accountBookId},
+        #{expenseDate},
+        #{expenses},
+        #{type},
+        #{classification},
+        #{status},
+        now(),
+        now(),
+        #{description}
+        )
+    </insert>
+
+    <update id="updateExpenses" parameterType="expensesEntity">
+        UPDATE expenses
+        <set>
+            <if test="expenses != null">
+                `expenses` = #{expenses},
+            </if>
+            <if test="expenseDate != null">
+                `expense_date` = #{expenseDate},
+            </if>
+            <if test="type != null">
+                `type` = #{type},
+            </if>
+            <if test="classification != null">
+                `classification` = #{classification},
+            </if>
+            <if test="status != null">
+                `status` = #{status},
+            </if>
+            <if test="description != null">
+                `description` = #{description},
+            </if>
+            `last_modify_time` = now()
+        </set>
+        WHERE `id` = #{id}
+    </update>
+
+    <select id="queryExpensesById" parameterType="map" resultMap="BaseResultMap">
+        SELECT *
+        FROM expenses
+        WHERE id = #{id}
+    </select>
+
+    <select id="listExpensesByAccountBookId" parameterType="map" resultMap="BaseResultMap">
+        SELECT *
+        FROM expenses
+        WHERE account_book_id = #{accountBookId}
+        <if test="beginDate!=null and endDate!=null">
+            and expense_date  between #{beginDate} and #{endDate}
+        </if>
+
+    </select>
+
+    <select id="listExpensesByAccountBookIdByExpenseDay" parameterType="map" resultMap="BaseResultMap">
+        SELECT *
+        FROM expenses
+        WHERE account_book_id = #{accountBookId}
+        <if test="beginDate!=null and endDate!=null">
+            and expense_date  between #{beginDate} and #{endDate}
+        </if>
+
+    </select>
+
+    <select id="sumExpenses" parameterType="map" resultType="Float">
+        SELECT sum(expenses) as expenses
+        FROM expenses
+        WHERE account_book_id = #{accountBookId}
+        and type = #{type}
+        <if test="beginDate!=null and endDate!=null">
+            and expense_date  between #{beginDate} and #{endDate}
+        </if>
+    </select>
+
+
+    <select id="queryExpensesByBudgetId" parameterType="map" resultMap="BaseResultMap">
+        SELECT *
+        FROM expenses
+        WHERE budget_id = #{budgetId}
+    </select>
+
+    <delete id="deleteExpensesById" parameterType="map">
+        DELETE FROM expenses WHERE id=#{id}
+    </delete>
+
+    <select id="queryExpensesGroupClassificationByType" parameterType="map" resultType="com.example.phoebe.youtiao.api.dto.ExpensesGroupClassificationDto">
+        select classification, sum(expenses) as total from expenses
+        where account_book_id = #{accountBookId}
+        and type = #{type}
+        <if test="beginDate!=null and endDate!=null">
+            and expense_date  between #{beginDate} and #{endDate}
+        </if>
+        group by classification order by total desc
+    </select>
+</mapper>

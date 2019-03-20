@@ -1,0 +1,14 @@
+08:08:55 [main] INFO  c.e.p.y.Backend   Starting Backend on LKB with PID 15712 (F:\life\backend\target\classes started by LKB in F:\life\backend)
+08:08:55 [main] INFO  c.e.p.y.Backend   The following profiles are active: dev
+08:08:56 [main] INFO  c.e.p.y.r.RedisConfig   JedisPool注入成功！！
+08:08:56 [main] INFO  c.e.p.y.r.RedisConfig   redis地址：localhost:6379
+08:08:56 [main] INFO  c.e.p.y.Backend   Started Backend in 1.921 seconds (JVM running for 2.777)
+08:20:03 [main] INFO  c.e.p.y.Backend   Starting Backend on LKB with PID 10852 (F:\life\backend\target\classes started by LKB in F:\life\backend)
+08:20:03 [main] INFO  c.e.p.y.Backend   The following profiles are active: dev
+08:20:04 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext   Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+08:20:04 [main] ERROR o.s.b.SpringApplication   Application run failedorg.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at com.example.phoebe.youtiao.Backend.main(Backend.java:16) [10 skipped]
+	... 8 common frames omitted
+Wrapped by: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at com.example.phoebe.youtiao.Backend.main(Backend.java:16) [8 skipped]
+
