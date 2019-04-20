@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hugh.life.dao.api.CurrentWeatherDao">
+    <resultMap id="BaseResultMap" type="currentWeatherEntity">
+        <id column="id" property="id"/>
+        <result column="lid" property="lid"/>
+        <result column="weather" property="weather"/>
+        <!--<result column="update_time" property="updateTime"/>-->
+        <!--<result column="cloud" property="cloud"/>-->
+        <!--<result column="cond_code" property="condCode"/>-->
+        <!--<result column="cond_txt" property="condTxt"/>-->
+        <!--<result column="fl" property="fl"/>-->
+        <!--<result column="hum" property="hum"/>-->
+        <!--<result column="pcpn" property="pcpn"/>-->
+        <!--<result column="pres" property="pres"/>-->
+        <!--<result column="tmp" property="tmp"/>-->
+        <!--<result column="vis" property="vis"/>-->
+        <!--<result column="wind_deg" property="windDeg"/>-->
+        <!--<result column="wind_dir" property="windDir"/>-->
+        <!--<result column="wind_sc" property="windSc"/>-->
+        <!--<result column="wind_spd" property="windSpd"/>-->
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+    <insert id="add" parameterType="currentWeatherEntity">
+        INSERT INTO current_weather(
+        `id`,
+        `lid`,
+        `weather`,
+        `create_time`
+        )
+        VALUES (
+        #{id},
+        #{lid},
+        #{weather},
+        now()
+        )
+    </insert>
+
+    <select id="listInfo" parameterType="map" resultType="com.example.hugh.life.api.dto.ListInfoDto">
+        select l.longitude, l.latitude , cw.weather -> '$.HeWeather6[0].now.tmp' as tmp
+        from location as l
+        inner join
+        current_weather as cw
+        on l.id = cw.lid
+        where l.uid = #{uid}
+    </select>
+
+    <!--<select id="listAndLimitEntity" parameterType="map" resultType="BaseResultMap">-->
+        <!--select *from current_weather where lid = #{lid}-->
+        <!--order by update_time desc  limit #{limit}-->
+    <!--</select>-->
+</mapper>

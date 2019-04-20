@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hugh.life.dao.api.LocationDao">
+    <resultMap id="BaseResultMap" type="locationEntity">
+        <id column="id" property="id"/>
+        <result column="uid" property="uid"/>
+        <result column="longitude" property="longitude"/>
+        <result column="latitude" property="latitude"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+    <insert id="add" parameterType="locationEntity">
+        INSERT INTO location(
+        `id`,
+        `uid`,
+        `longitude`,
+        `latitude`,
+        `create_time`
+        )
+        VALUES (
+        #{id},
+        #{uid},
+        #{longitude},
+        #{latitude},
+        now()
+        )
+    </insert>
+    <select id="listLocationByUid" parameterType="map" resultMap="BaseResultMap">
+        select *from location where uid = #{uid}
+        <if test="beginTime!=null">
+            <![CDATA[ and create_time >= #{beginTime} ]]>
+        </if>
+        <if test="endTime!=null">
+            <![CDATA[ and create_time <= #{endTime} ]]>
+        </if>
+
+    </select>
+
+    <select id="queryLocationByUidLimit" parameterType="map" resultMap="BaseResultMap">
+        select *from location where uid = #{uid}
+        order by create_time desc limit #{limit}
+    </select>
+    <select id="queryAllUid" resultType="String">
+        select uid from location
+    </select>
+</mapper>

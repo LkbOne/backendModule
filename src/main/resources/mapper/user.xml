@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hugh.life.dao.api.UserDao">
+    <resultMap id="BaseResultMap" type="userEntity">
+        <id column="id" property="id"/>
+        <result column="account" property="account"/>
+        <result column="password" property="password"/>
+        <result column="name" property="name"/>
+        <result column="email" property="email"/>
+        <result column="create_time" property="createTime"/>
+        <result column="last_modify_time" property="lastModifyTime"/>
+        <result column="description" property="description"/>
+        <result column="phone" property="phone"/>
+    </resultMap>
+
+    <insert id="addUser" parameterType="userEntity">
+        INSERT INTO user(
+        `id`,
+        `account`,
+        `password`,
+        `name`,
+        `email`,
+        `create_time`,
+        `last_modify_time`
+        `phone`,
+        `description`
+        )
+        VALUES (
+        #{id},
+        #{account},
+        #{password},
+        #{name},
+        #{email},
+        now(),
+        now(),
+        #{phone},
+        #{description}
+        )
+    </insert>
+
+    <update id="updateUser" parameterType="userEntity">
+        UPDATE user
+        <set>
+            <if test="account != null">
+                `account` = #{account},
+            </if>
+            <if test="password != null">
+                `password` = #{password},
+            </if>
+            <if test="name != null">
+                `name` = #{name},
+            </if>
+            <if test="phone != null">
+                `phone` = #{phone},
+            </if>
+            <if test="description != null">
+                `description` = #{description},
+            </if>
+            `last_modify_time` = now()
+        </set>
+        WHERE `id` = #{id}
+    </update>
+
+    <select id="queryUserById" parameterType="map" resultMap="BaseResultMap">
+        SELECT *
+        FROM user
+        WHERE id = #{id}
+    </select>
+    <select id="queryUserByAccount" parameterType="map" resultMap="BaseResultMap">
+        SELECT *
+        FROM user
+        WHERE account = #{account}
+    </select>
+    <select id="queryUserByPhone" parameterType="map" resultMap="BaseResultMap">
+        SELECT *
+        FROM user
+        WHERE phone = #{phone}
+    </select>
+
+    <delete id="deleteUserById" parameterType="map">
+        DELETE FROM user WHERE id=#{id}
+    </delete>
+    <select id="queryUserByAccountAndPassword" parameterType="map" resultMap="BaseResultMap">
+        SELECT *
+        FROM user
+        WHERE account = #{account} and password = #{password}
+    </select>
+
+    <select id="queryUserByEmail" parameterType="map" resultMap="BaseResultMap">
+        SELECT *
+        FROM user
+        WHERE email = #{email}
+    </select>
+</mapper>

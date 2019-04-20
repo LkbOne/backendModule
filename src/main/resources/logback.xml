@@ -4,7 +4,7 @@
 		<file>logs/youtiao.log</file>
 		　<append>true</append>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<FileNamePattern>logs/youtiao-%d{yyyy-MM-dd}.%i.log.gz</FileNamePattern>
+			<FileNamePattern>logs/life-%d{yyyy-MM-dd}.%i.log.gz</FileNamePattern>
 			<maxHistory>30</maxHistory>
 			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
 				<maxFileSize>300MB</maxFileSize>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hugh.life.dao.api.SearchInfoDao">
+    <resultMap id="BaseResultMap" type="searchInfoEntity">
+        <id column="id" property="id"/>
+        <result column="uid" property="uid"/>
+        <result column="url" property="url"/>
+        <result column="content" property="content"/>
+        <result column="type" property="type"/>
+        <result column="create_time" property="createTime"/>
+        <result column="last_modify_time" property="lastModifyTime"/>
+        <result column="main_type" property="mainType"/>
+        <result column="trace_type" property="traceType"/>
+    </resultMap>
+
+    <insert id="addSearchInfo" parameterType="searchInfoEntity">
+        INSERT INTO search_info(
+        `id`,
+        `uid`,
+        `url`,
+        `content`,
+        `type`,
+        `create_time`,
+        `last_modify_time`,
+        `main_type`,
+        `trace_type`
+        )
+        VALUES (
+        #{id},
+        #{uid},
+        #{url},
+        #{content},
+        #{type},
+        now(),
+        now(),
+        #{mainType},
+        #{traceType}
+        )
+    </insert>
+
+    <select id="querySearchInfoById" parameterType="map" resultMap="BaseResultMap">
+        SELECT *
+        FROM search_info
+        WHERE id = #{id}
+    </select>
+    <select id="listSearchInfoByUid" parameterType="map" resultMap="BaseResultMap">
+        SELECT *
+        FROM search_info
+        WHERE uid = #{uid}
+        <if test="beginDate!=null">
+            and create_time &gt; #{beginDate}
+        </if>
+        <if test="beginDate!=null">
+            and create_time &lt; #{endDate}
+        </if>
+    </select>
+
+    <select id="listSearchInfoByUidAndAllType" parameterType="map" resultMap="BaseResultMap">
+        SELECT *
+        FROM search_info
+        WHERE uid = #{uid}
+        <if test="beginDate!=null">
+            and create_time &gt; #{beginDate}
+        </if>
+        <if test="endDate!=null">
+            and create_time &lt; #{endDate}
+        </if>
+        <if test="type!=null">
+            and `type` = #{type}
+        </if>
+        <if test="mainType!=null">
+            and `main_type` = #{mainType}
+        </if>
+        <if test="traceType!=null">
+            and `trace_type` = #{traceType}
+        </if>
+    </select>
+
+    <select id="countSearchInfoByUidAndAllType" parameterType="map" resultType="Integer">
+        SELECT count(1)
+        FROM search_info
+        WHERE uid = #{uid}
+        <if test="beginDate!=null">
+            and create_time &gt; #{beginDate}
+        </if>
+        <if test="endDate!=null">
+            and create_time &lt; #{endDate}
+        </if>
+        <if test="type!=null">
+            and `type` = #{type}
+        </if>
+        <if test="mainType!=null">
+            and `main_type` = #{mainType}
+        </if>
+        <if test="traceType!=null">
+            and `trace_type` = #{traceType}
+        </if>
+    </select>
+
+
+</mapper>
