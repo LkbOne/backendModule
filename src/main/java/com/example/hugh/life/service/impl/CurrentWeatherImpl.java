@@ -42,7 +42,7 @@ public class CurrentWeatherImpl implements CurrentWeatherService {
         log.warn("CurrentWeatherImpl.queryAllUserCurrentWeather begin");
         List<String> uidList = locationDao.queryAllUid();
         for (String uid : uidList) {
-            List<LocationEntity> locationList = locationDao.queryLocationByUidLimit(uid, null);
+            List<LocationEntity> locationList = locationDao.queryLocationByUidLimit(uid, 1);
             if (CollectionUtils.isNotEmpty(locationList)) {
                 LocationEntity locationEntity = locationList.get(0);
                 String data = heWeatherManager.liveWeather(locationEntity.getLongitude(), locationEntity.getLatitude());

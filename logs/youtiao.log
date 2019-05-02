@@ -122,3 +122,73 @@ Wrapped by: org.springframework.jdbc.BadSqlGrammarException:
 07:52:34 [http-nio-6060-exec-2] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
 07:52:34 [http-nio-6060-exec-2] INFO  c.z.h.HikariDataSource   HikariPool-1 - Start completed.
 08:02:22 [HikariPool-1 housekeeper] WARN  c.z.h.p.HikariPool   HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m48s391ms445µs25ns).
+14:41:35 [main] WARN  o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer   
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/LKB/.m2/repository/org/json/json/20170516/json-20170516.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/LKB/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+14:41:35 [main] INFO  c.e.p.y.UserTests   Starting UserTests on LKB with PID 25744 (started by LKB in F:\life\backend)
+14:41:35 [main] INFO  c.e.p.y.UserTests   The following profiles are active: dev
+14:41:35 [main] WARN  o.s.w.c.s.GenericWebApplicationContext   Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'application': Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javafx.application.Application]: Is it an abstract class?; nested exception is java.lang.InstantiationException
+14:41:35 [main] ERROR o.s.b.SpringApplication   Application run failedjava.lang.InstantiationException: null
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) [1 skipped]
+ [46 skipped]
+	... 45 common frames omitted
+Wrapped by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [javafx.application.Application]: Is it an abstract class?; nested exception is java.lang.InstantiationException
+ [46 skipped]
+	... 43 common frames omitted
+Wrapped by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'application': Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javafx.application.Application]: Is it an abstract class?; nested exception is java.lang.InstantiationException
+ [44 skipped]
+
+14:41:35 [main] ERROR o.s.t.c.TestContextManager   Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@25a6944c] to prepare test instance [com.example.phoebe.youtiao.UserTests@5e1fa5b1]java.lang.InstantiationException: null
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) [1 skipped]
+ [46 skipped]
+	... 45 common frames omitted
+Wrapped by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [javafx.application.Application]: Is it an abstract class?; nested exception is java.lang.InstantiationException
+ [46 skipped]
+	... 43 common frames omitted
+Wrapped by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'application': Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javafx.application.Application]: Is it an abstract class?; nested exception is java.lang.InstantiationException
+ [44 skipped]
+	... 27 common frames omitted
+Wrapped by: java.lang.IllegalStateException: Failed to load ApplicationContext
+ [28 skipped]
+
+14:42:01 [main] WARN  o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer   
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/LKB/.m2/repository/org/json/json/20170516/json-20170516.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/LKB/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+14:42:01 [main] INFO  c.e.p.y.UserTests   Starting UserTests on LKB with PID 26436 (started by LKB in F:\life\backend)
+14:42:01 [main] INFO  c.e.p.y.UserTests   The following profiles are active: dev
+14:42:01 [main] WARN  o.s.w.c.s.GenericWebApplicationContext   Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'application': Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javafx.application.Application]: Is it an abstract class?; nested exception is java.lang.InstantiationException
+14:42:01 [main] ERROR o.s.b.SpringApplication   Application run failedjava.lang.InstantiationException: null
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) [1 skipped]
+ [46 skipped]
+	... 45 common frames omitted
+Wrapped by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [javafx.application.Application]: Is it an abstract class?; nested exception is java.lang.InstantiationException
+ [46 skipped]
+	... 43 common frames omitted
+Wrapped by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'application': Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javafx.application.Application]: Is it an abstract class?; nested exception is java.lang.InstantiationException
+ [44 skipped]
+
+14:42:01 [main] ERROR o.s.t.c.TestContextManager   Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@25a6944c] to prepare test instance [com.example.phoebe.youtiao.UserTests@5e1fa5b1]java.lang.InstantiationException: null
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) [1 skipped]
+ [46 skipped]
+	... 45 common frames omitted
+Wrapped by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [javafx.application.Application]: Is it an abstract class?; nested exception is java.lang.InstantiationException
+ [46 skipped]
+	... 43 common frames omitted
+Wrapped by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'application': Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javafx.application.Application]: Is it an abstract class?; nested exception is java.lang.InstantiationException
+ [44 skipped]
+	... 27 common frames omitted
+Wrapped by: java.lang.IllegalStateException: Failed to load ApplicationContext
+ [28 skipped]
+
