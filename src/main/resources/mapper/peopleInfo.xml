@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hugh.life.dao.api.PeopleInfoDao">
+    <resultMap id="BaseResultMap" type="peopleInfoEntity">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="type" property="type"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+    <insert id="add" parameterType="peopleInfoEntity">
+        INSERT INTO people_info(
+        `id`,
+        `name`,
+        `type`,
+        `create_time`
+        )
+        VALUES (
+        #{id},
+        #{name},
+        #{type},
+        now()
+        )
+    </insert>
+
+    <select id="queryByName" parameterType="map" resultMap="BaseResultMap">
+        select  * from people_info where name = #{name}
+    </select>
+
+    <select id="getPeopleNameByIdentityAndMovie" parameterType="map" resultType="String">
+        select name from people_info where id in
+        ((select people_info_id from people_info_middle_movie_info
+        where movie_info_id = #{movieInfoId}) )
+        and id in( select people_info_id from people_info_middle_identity
+        where identity_id =(select id from identity where identity =#{identity}))
+         limit #{topN}
+
+    </select>
+    <select id="getPeopleNameByIdentityAndBook" parameterType="map" resultType="String">
+        select name from people_info where id in
+        ((select people_info_id from people_info_middle_book_info
+        where book_info_id = #{bookInfoId}) )
+        and id in( select people_info_id from people_info_middle_identity
+        where identity_id =(select id from identity where `identity` = #{identity}))
+         limit #{topN}
+    </select>
+
+
+</mapper>

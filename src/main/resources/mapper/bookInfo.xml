@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hugh.life.dao.api.BookInfoDao">
+    <resultMap id="BaseResultMap" type="bookInfoEntity">
+        <id column="id" property="id"/>
+        <result column="numRaters" property="numRaters"/>
+        <result column="rate_average" property="rateAverage"/>
+        <result column="pubdate" property="pubdate"/>
+        <result column="origin_title" property="originTitle"/>
+        <result column="image" property="image"/>
+        <result column="binding" property="binding"/>
+        <result column="catalog" property="catalog"/>
+        <result column="pages" property="pages"/>
+        <result column="images_small" property="imagesSmall"/>
+        <result column="images_large" property="imagesLarge"/>
+        <result column="image_medium" property="imageMedium"/>
+        <result column="alt" property="alt"/>
+        <result column="douban_id" property="doubanId"/>
+        <result column="publisher" property="publisher"/>
+        <result column="isbn10" property="isbn10"/>
+        <result column="isbn13" property="isbn13"/>
+        <result column="title" property="title"/>
+        <result column="url" property="url"/>
+        <result column="alt_title" property="altTitle"/>
+        <result column="author_intro" property="authorIntro"/>
+        <result column="price" property="price"/>
+        <result column="create_time" property="createTime"/>
+        <result column="last_modify_time" property="lastModifyTime"/>
+    </resultMap>
+
+    <insert id="add" parameterType="bookInfoEntity">
+        INSERT INTO book_info(
+        `id`,
+        `numRaters`,
+        `rate_average`,
+        `pubdate`,
+        `origin_title`,
+        `image`,
+        `binding`,
+        `catalog`,
+        `pages`,
+        `images_small`,
+        `images_large`,
+        `image_medium`,
+        `alt`,
+        `douban_id`,
+        `publisher`,
+        `isbn10`,
+        `isbn13`,
+        `title`,
+        `url`,
+        `alt_title`,
+        `author_intro`,
+        `summary`,
+        `price`,
+        `create_time`,
+        `last_modify_time`
+        )
+        VALUES (
+        #{id},
+        #{numRaters},
+        #{rateAverage},
+        #{pubdate},
+        #{originTitle},
+        #{image},
+        #{binding},
+        #{catalog},
+        #{pages},
+        #{imagesSmall},
+        #{imagesLarge},
+        #{imageMedium},
+        #{alt},
+        #{doubanId},
+        #{publisher},
+        #{isbn10},
+        #{isbn13},
+        #{title},
+        #{url},
+        #{altTitle},
+        #{authorIntro},
+        #{summary},
+        #{price},
+        now(),
+        now()
+        )
+    </insert>
+
+    <select id="queryByDouBanId" parameterType="String" resultMap="BaseResultMap">
+        select * from book_info
+        where douban_id = #{doubanId}
+    </select>
+
+
+    <select id="recommendByPagesInfo"  parameterType="map" resultMap="BaseResultMap">
+        select * from
+        (select * from book_info where pages between #{min} and #{max})
+        as tmp where tmp.id not in
+        (select book_info_id from user_middle_book_info
+        where user_id =#{userId})order by rate_average desc limit #{topN}
+
+    </select>
+
+    <select id="getBookInfoExceptUserId" parameterType="map" resultMap="BaseResultMap">
+        select *from book_info where id
+        not in (select book_info_id from user_middle_book_info
+        where user_id = #{userId}) order by rate_average limit #{topN}
+    </select>
+    <select id="listByLikeTitle" parameterType="map" resultMap="BaseResultMap">
+        select *from book_info where title LIKE CONCAT('%', #{content}, '%')
+        order by rate_average limit #{topN}
+    </select>
+
+
+    <select id="getOtherPeopleUser" parameterType="map" resultMap="BaseResultMap">
+        select *from book_info where id in(
+        select book_info_id from  life.user_middle_book_info  where user_id != #{userId})
+    </select>
+
+</mapper>

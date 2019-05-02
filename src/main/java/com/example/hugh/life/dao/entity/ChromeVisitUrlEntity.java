@@ -15,4 +15,5 @@ public class ChromeVisitUrlEntity {
     Integer typedCount;
     Integer hidden;
     Float lastVisitTime;
+    Integer divided;
 }

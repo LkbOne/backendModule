@@ -26,6 +26,7 @@ public class ClockServiceImpl implements ClockService {
     public ModelResult addClock(AddClockArg arg) {
         ClockEntity addClock = BeanUtil.copy(arg, ClockEntity.class);
         addClock.setId(UUIDUtil.getUUID());
+        addClock.setDescription(arg.getDesc());
         if(!clockDao.add(addClock)){
 
             return new ModelResult(SHErrorCode.ADD_CLOCK_FAIL);

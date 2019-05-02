@@ -36,12 +36,21 @@ public enum SHErrorCode {
 	ADD_MESSAGE_FAIL(2000, "添加信息失败"),
 
 	//
-	ADD_BURY_FAIL(2500, "添加买点失败");
+	ADD_BURY_FAIL(2500, "添加买点失败"),
+
+
+	// 图片
+	TRANSFER_TPATH_FAIL(2800,"获取TPath失败"),
+	TRANSFER_FPATH_FAIL(2801,"获取FPath失败"),
+
+	// 翻译
+	TRANSLATE_FAIL(3000,"翻译失败");
+
 	SHErrorCode(int errorCode, String errorMessage) {
 		this.errorCode = errorCode;
 		this.errorMessage = errorMessage;
 	}
-	
+
 	private int errorCode;
 	private String errorMessage;
 	

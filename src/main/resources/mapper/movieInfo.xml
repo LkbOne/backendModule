@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hugh.life.dao.api.MovieInfoDao">
+    <resultMap id="BaseResultMap" type="movieInfoEntity">
+        <id column="id" property="id"/>
+        <result column="duration" property="duration"/>
+        <result column="douban_id" property="doubanId"/>
+        <result column="rate" property="rate"/>
+        <result column="region" property="region"/>
+        <result column="release_year" property="releaseYear"/>
+        <result column="url" property="url"/>
+        <result column="subType" property="subType"/>
+        <result column="cover_url" property="coverUrl"/>
+        <result column="title" property="title"/>
+        <result column="create_time" property="createTime"/>
+        <result column="last_modify_time" property="lastModifyTime"/>
+        <result column="crawlered" property="crawlered"/>
+    </resultMap>
+
+    <insert id="add" parameterType="movieInfoEntity">
+        INSERT INTO movie_info(
+        `id`,
+        `duration`,
+        `douban_id`,
+        `rate`,
+        `region`,
+        `release_year`,
+        `url`,
+        `subType`,
+        `create_time`,
+        `last_modify_time`,
+        `cover_url`,
+        `title`,
+        `crawlered`
+        )
+        VALUES (
+        #{id},
+        #{duration},
+        #{doubanId},
+        #{rate},
+        #{region},
+        #{releaseYear},
+        #{url},
+        #{subType},
+        now(),
+        now(),
+        #{coverUrl},
+        #{title},
+        FALSE
+        )
+    </insert>
+
+    <select id="countByDoubanId" parameterType="String" resultType="int">
+        select count(*) from movie_info
+        where douban_id = #{doubanId}
+    </select>
+
+    <update id="update" parameterType="movieInfoEntity">
+        update movie_info
+        <set>
+            <if test="duration!=null">
+                duration=#{duration},
+            </if>
+            <if test="region!=null">
+                region=#{region},
+            </if>
+            <if test="releaseYear">
+                release_year=#{releaseYear},
+            </if>
+            <if test="subType">
+                subType=#{subType},
+            </if>
+            <if test="coverUrl!=null">
+                cover_Url = #{coverUrl},
+            </if>
+            last_modify_time=now(),
+            crawlered=true
+        </set>
+        where douban_id = #{doubanId}
+    </update>
+
+    <select id="listByCrawlered"  parameterType="map" resultMap="BaseResultMap">
+        select * from movie_info where crawlered=#{crawlered}
+    </select>
+    <select id="recommendByTypeInfo"  parameterType="map" resultMap="BaseResultMap">
+        select * from (select *from movie_info where id in
+        (select movie_info_id from types_middle_movie_info where types_id
+        in (select id from types where type_info = #{typeInfo}))) as tmp
+        where tmp.id not in ((select movie_info_id from user_middle_movie_info
+        where user_id =#{userId})) order by rate desc limit #{topN}
+
+    </select>
+    
+    <select id="getMovieInfoExceptUserId" parameterType="map" resultMap="BaseResultMap">
+        select *from movie_info where id
+        not in (select movie_info_id from user_middle_movie_info
+        where user_id = #{userId}) order by rate limit #{topN}
+    </select>
+
+    <select id="listByLikeTitle" parameterType="map" resultMap="BaseResultMap">
+        select *from movie_info where title LIKE CONCAT('%', #{content}, '%')
+        order by rate limit #{topN}
+    </select>
+
+    <select id="getOtherPeopleUser" parameterType="map" resultMap="BaseResultMap">
+        select *from movie_info where id in(
+        select movie_info_id from  life.user_middle_movie_info  where user_id != #{userId})
+    </select>
+
+</mapper>

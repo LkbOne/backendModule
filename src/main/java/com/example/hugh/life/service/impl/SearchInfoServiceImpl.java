@@ -2,10 +2,7 @@ package com.example.hugh.life.service.impl;
 
 import com.example.hugh.life.api.SearchInfoService;
 import com.example.hugh.life.api.dto.FilterTypeDto;
-import com.example.hugh.life.api.result.SearchResult;
-import com.example.hugh.life.api.result.SumDaySearchActionResult;
-import com.example.hugh.life.api.result.SumSearchActionResult;
-import com.example.hugh.life.api.result.UrlCountRankResult;
+import com.example.hugh.life.api.result.*;
 import com.example.hugh.life.commmon.ModelResult;
 import com.example.hugh.life.commmon.SHErrorCode;
 import com.example.hugh.life.commmon.enums.SearchMainTypeEnum;
@@ -14,22 +11,21 @@ import com.example.hugh.life.commmon.util.DateUtil;
 import com.example.hugh.life.commmon.util.UUIDUtil;
 import com.example.hugh.life.commmon.util.WebCrawlerUtil;
 import com.example.hugh.life.controller.arg.*;
-import com.example.hugh.life.dao.api.ChromeVisitUrlDao;
-import com.example.hugh.life.dao.api.SearchInfoDao;
-import com.example.hugh.life.dao.api.UserDao;
-import com.example.hugh.life.dao.entity.ChromeVisitUrlEntity;
-import com.example.hugh.life.dao.entity.SearchInfoEntity;
-import com.example.hugh.life.dao.entity.UserEntity;
+import com.example.hugh.life.dao.api.*;
+import com.example.hugh.life.dao.entity.*;
+import com.example.hugh.life.service.manager.BookManager;
+import com.example.hugh.life.service.manager.KeyWordManager;
+import com.example.hugh.life.service.manager.RecommendManager;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import org.apache.commons.collections4.CollectionUtils;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -131,7 +127,20 @@ public class SearchInfoServiceImpl implements SearchInfoService {
 
     @Override
     public ModelResult addBatchSearchInfo(AddBatchSearchInfoArg arg) {
-        chromeVisitUrlDao.batchAdd("0a6a4fac0f2845708c5bfc1be8a25b7b", arg.getUrls());
+
+        List<ChromeVisitUrlEntity> urlEntityList = chromeVisitUrlDao.listByUid(arg.getUid());
+        if(CollectionUtils.isEmpty(urlEntityList)){
+            chromeVisitUrlDao.batchAdd(arg.getUid(), arg.getUrls());
+        }else {
+            List<AddBatchSearchInfoArg.SearchInfo> historys = arg.getUrls();
+            for (AddBatchSearchInfoArg.SearchInfo history : historys) {
+                if(chromeVisitUrlDao.countUrlById(history.getId()) == 0){
+                    chromeVisitUrlDao.add(arg.getUid(), history);
+                }else {
+                    chromeVisitUrlDao.update(arg.getUid(), history);
+                }
+            }
+        }
         return new ModelResult(SHErrorCode.SUCCESS);
     }
 
@@ -216,7 +225,7 @@ public class SearchInfoServiceImpl implements SearchInfoService {
         return filterList;
     }
 
-    private Map<String, List<String>> recommadation(List<UrlCountRankResult> resultList){
+    private Map<String, List<String>> recommendation(List<UrlCountRankResult> resultList){
         List<FilterTypeDto> filterList = filterUrlByType(resultList);
         Map<String, List<String>> typeMapUrlListMap = Maps.newConcurrentMap();
         for (FilterTypeDto filterTypeDto : filterList) {
@@ -262,6 +271,46 @@ public class SearchInfoServiceImpl implements SearchInfoService {
 
         return new ModelResult(SHErrorCode.SUCCESS);
     }
+
+    @Autowired
+    BookInfoDao bookInfoDao;
+
+    @Autowired
+    MovieInfoDao movieInfoDao;
+    @Autowired
+    RecommendManager recommendManager;
+
+    @Autowired
+    BookManager bookManager;
+
+    @Autowired
+    KeyWordManager keyWordManager;
+    @Override
+    public ModelResult searchAction(SearchActionArg arg) {
+        List<RecommendUsuallyResult> results = Lists.newArrayList();
+        if(arg.getType() == 1){
+            List<BookInfoEntity> bookInfoList = Lists.newArrayList();
+            BookManager.BookList bookList = bookManager.bookList(arg.getContent(), 0, 3);
+            keyWordManager.keyWord(bookList);
+            if(null != bookList && CollectionUtils.isNotEmpty(bookList.getBooks())){
+                List<BookManager.BookList.Book> bookEntity = bookList.getBooks();
+                for (BookManager.BookList.Book book : bookEntity) {
+                    BookInfoEntity entity = keyWordManager.setKeyWord(book);
+                    bookInfoList.add(entity);
+                }
+                results = recommendManager.doSetResult(Lists.newArrayList(), bookInfoList);
+            }
+        }else if(arg.getType() == 2){
+            List<MovieInfoEntity> movieInfoList = movieInfoDao.listByLikeTitle(arg.getContent(), 3);
+            results = recommendManager.doSetResult(movieInfoList, Lists.newArrayList());
+        }else {
+
+        }
+        return new ModelResult<>(SHErrorCode.SUCCESS, results);
+    }
+
+
+
 //    "select *from chrome_visit_url where url like '%mgtv.com%'"
 
     public ModelResult<List<UrlCountRankResult>> searchInfoStatistic(SearchInfoStatisticArg arg){
@@ -299,7 +348,7 @@ public class SearchInfoServiceImpl implements SearchInfoService {
             resultList.add(result);
 //            top++;
         }
-        Map<String, List<String>> recommadationResult = recommadation(resultList);
+        Map<String, List<String>> recommadationResult = recommendation(resultList);
         return new ModelResult(SHErrorCode.SUCCESS, resultList);
     }
 

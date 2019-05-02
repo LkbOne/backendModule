@@ -59,12 +59,20 @@ public class SearchInfoController {
 
     @RequestMapping(value = "statisticSearchInfo", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public ModelResult<List<UrlCountRankResult>> statisticSearchIno(@RequestBody SearchInfoStatisticArg arg) {
-        arg.setUid("0a6a4fac0f2845708c5bfc1be8a25b7b");
+//        arg.setUid("0a6a4fac0f2845708c5bfc1be8a25b7b");
         return searchService.searchInfoStatistic(arg);
     }
     @RequestMapping(value = "recommendProgram", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public ModelResult recommendProgram(@RequestBody SearchInfoStatisticArg arg) {
-        arg.setUid("0a6a4fac0f2845708c5bfc1be8a25b7b");
+//        arg.setUid("0a6a4fac0f2845708c5bfc1be8a25b7b");
         return searchService.recommendProgram(arg);
+    }
+
+    @RequestMapping(value = "searchAction", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public ModelResult searchAction(@RequestBody SearchActionArg arg) {
+        if(arg.isWrongParams()){
+            log.warn("SearchInfoController.searchAction arg:{}", arg);
+        }
+        return searchService.searchAction(arg);
     }
 }

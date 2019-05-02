@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hugh.life.dao.api.IdentityDao">
+    <resultMap id="BaseResultMap" type="identityEntity">
+        <id column="id" property="id"/>
+        <result column="identity" property="identity"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+    <insert id="add" parameterType="identityEntity">
+        INSERT INTO identity(
+        `id`,
+        `identity`,
+        `create_time`
+        )
+        VALUES (
+        #{id},
+        #{identity},
+        now()
+        )
+    </insert>
+</mapper>

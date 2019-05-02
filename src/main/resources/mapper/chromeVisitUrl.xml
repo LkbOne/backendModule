@@ -9,6 +9,7 @@
         <result column="type_count" property="typedCount"/>
         <result column="last_visit_time" property="lastVisitTime"/>
         <result column="hidden" property="hidden"/>
+        <result column="divided" property="divided"/>
     </resultMap>
 
     <insert id="add" parameterType="chromeVisitUrlEntity">
@@ -19,16 +20,18 @@
         `visit_count`,
         `type_count`,
         `last_visit_time`,
-        `hidden`
+        `hidden`,
+        `divided`
         )
         VALUES (
-        #{id},
+        #{entity.id},
         #{uid},
-        #{title},
-        #{visitCount},
-        #{typeCount},
-        #{lastVisitTime},
-        #{hidden}
+        #{entity.title},
+        #{entity.visitCount},
+        #{entity.typeCount},
+        #{entity.lastVisitTime},
+        #{entity.hidden},
+        0
         )
     </insert>
 
@@ -41,10 +44,12 @@
         `visit_count`,
         `typed_count`,
         `last_visit_time`,
-        `hidden`
+        `hidden`,
+        `divided`
         ) VALUES
         <foreach collection="entities" item="entity" index="index" separator=",">
-            (#{entity.id}, #{uid}, #{entity.url},#{entity.title} , #{entity.visit_count}, #{entity.typed_count}, #{entity.last_visit_time},  #{entity.hidden})
+            (#{entity.id}, #{uid}, #{entity.url},#{entity.title} , #{entity.visit_count}, #{entity.typed_count},
+            #{entity.last_visit_time}, #{entity.hidden}, 0)
         </foreach>
     </insert>
 
@@ -56,7 +61,43 @@
         select* from chrome_visit_url where uid = #{uid}
          <![CDATA[
                 AND url LIKE CONCAT('%', #{part}, '%')
-            ]]>
+
+        ]]>
+    </select>
+    <select id="countUrlById" parameterType="map" resultType="int">
+        select count(1) from chrome_visit_url where id = #{id}
+    </select>
+    <update id="update" parameterType="map">
+        update chrome_visit_url
+        <set>
+            <if test="entity.visit_count!=null">
+                visit_count = #{entity.visit_count}
+            </if>
+            <if test="entity.type_count!=null">
+                type_count = #{entity.type_count}
+            </if>
+            <if test="entity.last_visit_time!=null">
+                last_visit_time = #{entity.last_visit_time}
+            </if>
+            <if test="entity.hidden!=null">
+                hidden = #{entity.hidden}
+            </if>
+        </set>
+        where id = #{entity.id}
+    </update>
+    <select id="listByDivided" parameterType="map" resultMap="BaseResultMap">
+        select *
+        from chrome_visit_url
+        where divided = #{divided}
     </select>
 
+    <update id="updateDivided" parameterType="map">
+        update chrome_visit_url
+        <set>
+            <if test="divided!=null">
+              divided = #{divided}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
 </mapper>

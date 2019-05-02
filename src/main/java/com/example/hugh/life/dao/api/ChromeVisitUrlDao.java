@@ -11,10 +11,17 @@ import java.util.List;
 
 @Repository
 public interface ChromeVisitUrlDao {
-    boolean add(ChromeVisitUrlEntity entity);
+    boolean add(@Param("uid") String uid, @Param("entity")AddBatchSearchInfoArg.SearchInfo searchInfo);
     void batchAdd(@Param("uid") String uid, @Param("entities") Collection<AddBatchSearchInfoArg.SearchInfo> entities);
     List<ChromeVisitUrlEntity> listByUid(@Param("uid") String uid);
 
     List<ChromeVisitUrlEntity> listByLikeUrl(@Param("uid") String uid, @Param("part") String part);
 
+    List<ChromeVisitUrlEntity> listByDivided(@Param("divided") Integer divided);
+
+    int countUrlById(@Param("id") Integer id);
+
+    boolean update(@Param("uid") String uid, @Param("entity")AddBatchSearchInfoArg.SearchInfo searchInfo);
+
+    boolean updateDivided(@Param("id") Integer id, @Param("divided")Integer divided);
 }

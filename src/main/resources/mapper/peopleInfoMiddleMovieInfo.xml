@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hugh.life.dao.api.PeopleInfoMiddleMovieInfoDao">
+    <resultMap id="BaseResultMap" type="peopleInfoMiddleMovieInfoEntity">
+        <id column="id" property="id"/>
+        <result column="movie_info_id" property="movieInfoId"/>
+        <result column="people_info_id" property="peopleInfoId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="last_modify_time" property="lastModifyTime"/>
+    </resultMap>
+
+    <insert id="add" parameterType="peopleInfoMiddleMovieInfoEntity">
+        INSERT INTO people_info_middle_movie_info(
+        `id`,
+        `movie_info_id`,
+        `people_info_id`,
+        `create_time`,
+        `last_modify_time`
+        )
+        VALUES (
+        #{id},
+        #{movieInfoId},
+        #{peopleInfoId},
+        now(),
+        now()
+        )
+    </insert>
+</mapper>

@@ -14,4 +14,5 @@ public class UserEntity {
     Date lastModifyTime;
     String email;
     String description;
+    String phone;
 }

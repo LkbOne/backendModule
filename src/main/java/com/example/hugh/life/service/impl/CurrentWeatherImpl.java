@@ -14,6 +14,7 @@ import com.example.hugh.life.dao.entity.CurrentWeatherEntity;
 import com.example.hugh.life.dao.entity.LocationEntity;
 import com.example.hugh.life.service.manager.HeWeatherManager;
 import com.google.common.collect.Lists;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@Slf4j
 public class CurrentWeatherImpl implements CurrentWeatherService {
     @Autowired
     CurrentWeatherDao currentWeatherDao;
@@ -34,12 +36,13 @@ public class CurrentWeatherImpl implements CurrentWeatherService {
     HeWeatherManager heWeatherManager;
 
     //    @Scheduled(cron = "0/2 * * * * *")
-//    @Scheduled(cron = "* * * 0/8 * ?")
+//    @Scheduled(cron = "0 0/10 * * * ?")
     @Override
     public void queryAllUserCurrentWeather() {
+        log.warn("CurrentWeatherImpl.queryAllUserCurrentWeather begin");
         List<String> uidList = locationDao.queryAllUid();
         for (String uid : uidList) {
-            List<LocationEntity> locationList = locationDao.queryLocationByUidLimit(uid, 1);
+            List<LocationEntity> locationList = locationDao.queryLocationByUidLimit(uid, null);
             if (CollectionUtils.isNotEmpty(locationList)) {
                 LocationEntity locationEntity = locationList.get(0);
                 String data = heWeatherManager.liveWeather(locationEntity.getLongitude(), locationEntity.getLatitude());
@@ -52,6 +55,7 @@ public class CurrentWeatherImpl implements CurrentWeatherService {
                 }
             }
         }
+        log.warn("CurrentWeatherImpl.queryAllUserCurrentWeather end");
     }
 
     @Override

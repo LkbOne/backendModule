@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hugh.life.dao.api.TagsMiddleBookInfoDao">
+    <resultMap id="BaseResultMap" type="tagsMiddleBookInfoEntity">
+        <id column="id" property="id"/>
+        <result column="tags_id" property="tagsId"/>
+        <result column="book_info_id" property="bookInfoId"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+    <insert id="add" parameterType="tagsMiddleBookInfoEntity">
+        INSERT INTO tags_middle_book_info(
+        `id`,
+        `tags_id`,
+        `book_info_id`,
+        `create_time`
+        )
+        VALUES (
+        #{id},
+        #{tagsId},
+        #{bookInfoId},
+        now()
+        )
+    </insert>
+</mapper>

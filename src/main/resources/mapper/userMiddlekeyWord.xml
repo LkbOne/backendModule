@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hugh.life.dao.api.UserMiddleKeyWordDao">
+    <resultMap id="BaseResultMap" type="userMiddleKeyWordEntity">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="key_word_id" property="keyWordId"/>
+        <result column="count" property="count"/>
+        <result column="create_time" property="createTime"/>
+        <result column="last_modify_time" property="lastModifyTime"/>
+    </resultMap>
+
+    <insert id="add" parameterType="userMiddleKeyWordEntity">
+        INSERT INTO user_middle_key_word(
+        `id`,
+        `user_id`,
+        `key_word_id`,
+        `count`,
+        `create_time`,
+        `last_modify_time`
+        )
+        VALUES (
+        #{id},
+        #{userId},
+        #{keyWordId},
+        #{count},
+        now(),
+        now()
+        )
+    </insert>
+
+
+    <update id="update" parameterType="map">
+        update user_middle_key_word
+        <set>
+            count = count + 1,
+            last_modify_time = now()
+        </set>
+        where user_id = #{userId}
+        AND  key_word_id = #{keyWordId}
+    </update>
+</mapper>

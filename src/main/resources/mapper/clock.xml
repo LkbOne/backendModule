@@ -4,7 +4,7 @@
     <resultMap id="BaseResultMap" type="clockEntity">
         <id column="id" property="id"/>
         <result column="uid" property="uid"/>
-        <result column="desc" property="desc"/>
+        <result column="description" property="description"/>
         <result column="name" property="name"/>
         <result column="time" property="time"/>
         <result column="cycle" property="cycle"/>
@@ -18,7 +18,7 @@
         INSERT INTO clock(
         `id`,
         `uid`,
-        `desc`,
+        `description`,
         `name`,
         `time`,
         `cycle`,
@@ -30,7 +30,7 @@
         VALUES (
         #{id},
         #{uid},
-        #{desc},
+        #{description},
         #{name},
         #{time},
         #{cycle},

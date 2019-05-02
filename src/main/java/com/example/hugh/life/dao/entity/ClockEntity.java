@@ -8,7 +8,7 @@ import java.util.Date;
 public class ClockEntity {
     String id;
     String uid;
-    String desc;
+    String description;
     String name;
     Date time;
     Integer cycle;

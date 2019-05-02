@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hugh.life.dao.api.UserMiddleBookInfoDao">
+    <resultMap id="BaseResultMap" type="userMiddleBookInfoEntity">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="book_info_id" property="bookInfoId"/>
+        <result column="count" property="count"/>
+        <result column="create_time" property="createTime"/>
+        <result column="last_modify_time" property="lastModifyTime"/>
+    </resultMap>
+
+    <insert id="add" parameterType="userMiddleBookInfoEntity">
+        INSERT INTO user_middle_book_info(
+        `id`,
+        `user_id`,
+        `book_info_id`,
+        `count`,
+        `create_time`,
+        `last_modify_time`
+        )
+        VALUES (
+        #{id},
+        #{userId},
+        #{bookInfoId},
+        #{count},
+        now(),
+        now()
+        )
+    </insert>
+
+    <select id="queryByUserIdAndBookInfoId" parameterType="map" resultMap="BaseResultMap">
+        select * from user_middle_book_info
+        where user_id = #{userId} and  book_info_id = #{bookInfoId}
+    </select>
+
+    <update id="update" parameterType="userMiddleBookInfoEntity" >
+        update user_middle_book_info
+        <set>
+            `count` = #{count},
+            `last_modify_time` =now()
+        </set>
+        where user_id = #{userId} and book_info_id = #{bookInfoId}
+    </update>
+
+</mapper>

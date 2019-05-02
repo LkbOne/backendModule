@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hugh.life.dao.api.SingerQQBaseInfoDao">
+    <resultMap id="BaseResultMap" type="singerQQBaseInfoEntity">
+        <id column="id" property="id"/>
+        <result column="country" property="country"/>
+        <result column="singer_id" property="singerId"/>
+        <result column="singer_mid" property="singerMid"/>
+        <result column="singer_name" property="singerName"/>
+        <result column="singer_pic" property="singerPic"/>
+        <result column="create_time" property="createTime"/>
+        <result column="last_modify_time" property="lastModifyTime"/>
+    </resultMap>
+
+    <insert id="batchAdd" parameterType="map">
+        INSERT INTO singer_qq_base_info(
+        `id`,
+        `country`,
+        `singer_id`,
+        `singer_mid`,
+        `singer_name`,
+        `singer_pic`,
+        `create_time`,
+        `last_modify_time`
+        )
+        VALUES
+        <foreach collection="entities" item="entity" index="index" separator=",">
+            (#{entity.id},
+             #{entity.country},
+             #{entity.singerId},
+             #{entity.singerMid} ,
+             #{entity.singerName},
+             #{entity.singerPic},
+            now(),
+            now())
+        </foreach>
+    </insert>
+</mapper>

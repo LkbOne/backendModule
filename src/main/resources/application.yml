@@ -27,7 +27,7 @@ mybatis:
   mapperLocations: classpath:mapper/*.xml
 
 server:
-  port: 7070
+  port: 6060
 
 #
 ##默认使用配置
@@ -41,7 +41,7 @@ server:
 #  mapperLocations: classpath:mapper/*.xml
 #
 #
-#---
+#---WebSocketConfig
 #
 ##开发配置
 #spring:

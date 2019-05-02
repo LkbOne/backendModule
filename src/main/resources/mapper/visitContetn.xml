@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hugh.life.dao.api.VisitContentDao">
+    <resultMap id="BaseResultMap" type="visitContentEntity">
+        <id column="id" property="id"/>
+        <result column="content" property="content"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+    <insert id="add" parameterType="visitContentEntity">
+        INSERT INTO visit_content(
+        `id`,
+        `content`,
+        `create_time`
+        )
+        VALUES (
+        #{id},
+        #{content},
+        now()
+        )
+    </insert>
+
+    <select id="queryByContent" parameterType="map" resultMap="BaseResultMap">
+        select *from visit_content where content = #{content}
+    </select>
+
+
+    <select id="queryTopNLikeContentByContent" parameterType="map" resultType="String">
+
+        SELECT vc.content AS searchInfo
+        FROM visit_content AS vc, user_middle_visit_content AS umvc
+        WHERE vc.id IN
+        (SELECT visit_content_id
+        FROM key_word_middle_visit_content
+        WHERE key_word_id IN
+        ( SELECT id
+        FROM life.key_word
+        where key_word LIKE CONCAT('%', #{content}, '%')) )
+        AND umvc.visit_content_id = vc.id
+        ORDER by umvc.count DESC
+        LIMIT #{topN}
+    </select>
+
+
+</mapper>

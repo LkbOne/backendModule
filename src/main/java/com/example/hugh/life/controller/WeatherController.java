@@ -24,4 +24,11 @@ public class WeatherController {
         }
         return currentWeatherService.listWeatherInfo(arg);
     }
+
+    @RequestMapping(value = "callWeather", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public ModelResult callWeather(@RequestBody ListWeatherInfoArg arg) {
+        currentWeatherService.queryAllUserCurrentWeather();
+        return new ModelResult(SHErrorCode.SUCCESS);
+    }
+
 }

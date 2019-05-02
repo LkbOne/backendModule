@@ -10,6 +10,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class AddBatchSearchInfoArg implements Serializable {
+    String uid;
     List<SearchInfo> urls;
     AddBatchSearchInfoArg(){
 

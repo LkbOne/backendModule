@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hugh.life.dao.api.TagsDao">
+    <resultMap id="BaseResultMap" type="tagsEntity">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="title" property="title"/>
+        <result column="count" property="count"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+    <insert id="add" parameterType="tagsEntity">
+        INSERT INTO tags(
+        `id`,
+        `name`,
+        `title`,
+        `count`,
+        `create_time`
+        )
+        VALUES (
+        #{id},
+        #{name},
+        #{title},
+        #{count},
+        now()
+        )
+    </insert>
+
+    <select id="queryByNameAndTitle" parameterType="map" resultType="tagsEntity">
+        select * from tags
+        where title=#{title} and name = #{name}
+    </select>
+</mapper>

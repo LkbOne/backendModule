@@ -38,7 +38,10 @@
 
     <select id="queryLocationByUidLimit" parameterType="map" resultMap="BaseResultMap">
         select *from location where uid = #{uid}
-        order by create_time desc limit #{limit}
+        order by create_time desc
+        <if test="limit!=null">
+        limit #{limit}
+        </if>
     </select>
     <select id="queryAllUid" resultType="String">
         select uid from location

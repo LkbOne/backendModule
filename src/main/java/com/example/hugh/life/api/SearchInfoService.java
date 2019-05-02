@@ -22,4 +22,5 @@ public interface SearchInfoService {
 
     ModelResult<List<UrlCountRankResult>> searchInfoStatistic(SearchInfoStatisticArg arg);
     ModelResult recommendProgram(SearchInfoStatisticArg arg);
+    ModelResult searchAction(SearchActionArg arg);
 }
