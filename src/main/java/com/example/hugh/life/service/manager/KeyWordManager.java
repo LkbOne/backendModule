@@ -3,6 +3,7 @@ package com.example.hugh.life.service.manager;
 import com.example.hugh.life.commmon.util.UUIDUtil;
 import com.example.hugh.life.dao.api.*;
 import com.example.hugh.life.dao.entity.*;
+import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -32,7 +33,8 @@ public class KeyWordManager {
     @Autowired
     PeopleInfoMiddleIdentityDao peopleInfoMiddleIdentityDao;
 
-    public void keyWord(BookManager.BookList bookList){
+    public List<BookInfoEntity> keyWord(BookManager.BookList bookList){
+        List<BookInfoEntity> entityList = Lists.newArrayList();
         if(null!= bookList && CollectionUtils.isNotEmpty(bookList.getBooks())){
             List<BookManager.BookList.Book> books = bookList.getBooks();
             for (BookManager.BookList.Book book : books) {
@@ -80,13 +82,14 @@ public class KeyWordManager {
                         }
                         doSetBookInfo(entity, book);
                     }
+                    entityList.add(entity);
                 }
             }
         }
+        return entityList;
     }
     @Transactional
     public void doSetBookInfo(BookInfoEntity entity, BookManager.BookList.Book book){
-        log.warn("BookInfoEntity:{}",entity);
         List<String> author = book.getAuthor(); // 作者
         List<String> translator = book.getTranslator(); //翻译
         List<BookManager.BookList.Book.Tag> tags = book.getTags();

@@ -1,194 +1,570 @@
-00:37:06 [main] INFO  c.e.h.l.Backend   Starting Backend on LKB with PID 15480 (F:\life\backend\target\classes started by LKB in F:\life\backend)
-00:37:06 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
-00:37:07 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
-00:37:07 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
-00:37:08 [main] INFO  c.e.h.l.Backend   Started Backend in 2.204 seconds (JVM running for 2.807)
-00:41:37 [main] INFO  c.e.h.l.Backend   Starting Backend on LKB with PID 13592 (F:\life\backend\target\classes started by LKB in F:\life\backend)
-00:41:37 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
-00:41:39 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext   Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'buryController': Lookup method resolution failed; nested exception is java.lang.IllegalStateException: Failed to introspect Class [com.example.hugh.life.controller.BuryController] from ClassLoader [sun.misc.Launcher$AppClassLoader@18b4aac2]
-00:41:39 [main] ERROR o.s.b.SpringApplication   Application run failedjava.lang.ClassNotFoundException: com.example.hugh.life.controller.arg.CommonArg
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) [1 skipped]
-	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
-	at java.lang.Class.getDeclaredMethods0(Native Method)
-	... 25 common frames omitted
-Wrapped by: java.lang.NoClassDefFoundError: com/example/hugh/life/controller/arg/CommonArg
-	at java.lang.Class.getDeclaredMethods0(Native Method)
-	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701)
-	at java.lang.Class.getDeclaredMethods(Class.java:1975)
-	at com.example.hugh.life.Backend.main(Backend.java:18) [21 skipped]
-	... 21 common frames omitted
-Wrapped by: java.lang.IllegalStateException: Failed to introspect Class [com.example.hugh.life.controller.BuryController] from ClassLoader [sun.misc.Launcher$AppClassLoader@18b4aac2]
-	at com.example.hugh.life.Backend.main(Backend.java:18) [21 skipped]
-	... 18 common frames omitted
-Wrapped by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'buryController': Lookup method resolution failed; nested exception is java.lang.IllegalStateException: Failed to introspect Class [com.example.hugh.life.controller.BuryController] from ClassLoader [sun.misc.Launcher$AppClassLoader@18b4aac2]
-	at com.example.hugh.life.Backend.main(Backend.java:18) [18 skipped]
+01:31:34 [main] INFO  c.e.h.l.Backend   Starting Backend on LAPTOP-BFTFA9BI with PID 3796 (C:\Users\ASUS\Desktop\backend\target\classes started by ASUS in C:\Users\ASUS\Desktop\backend)
+01:31:34 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
+01:31:37 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
+01:31:37 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
+01:31:38 [main] INFO  c.e.h.l.Backend   Started Backend in 5.507 seconds (JVM running for 7.708)
+01:50:10 [main] INFO  c.e.h.l.Backend   Starting Backend on LAPTOP-BFTFA9BI with PID 34480 (C:\Users\ASUS\Desktop\backend\target\classes started by ASUS in C:\Users\ASUS\Desktop\backend)
+01:50:10 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
+01:50:12 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
+01:50:12 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
+01:50:13 [main] INFO  c.e.h.l.Backend   Started Backend in 3.706 seconds (JVM running for 4.524)
+01:53:42 [http-nio-6060-exec-1] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver   Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+01:53:49 [http-nio-6060-exec-3] WARN  c.e.h.l.c.UserController   UserController.add params error arg:AddUserArg(account=null, password=1, name=null, email=null, description=null, phone=null)
+01:53:49 [http-nio-6060-exec-3] INFO  c.e.h.l.i.LogInterceptor   service finished, serviceName=com.example.hugh.life.controller.UserController#add args=[AddUserArg(account=null, password=1, name=null, email=null, description=null, phone=null)] result=ModelResult(errCode=-1, errMsg=参数错误, data=null) duration=16ms
+01:54:35 [http-nio-6060-exec-4] WARN  c.e.h.l.c.UserController   UserController.add params error arg:AddUserArg(account=null, password=1, name=null, email=null, description=null, phone=null)
+01:54:35 [http-nio-6060-exec-4] INFO  c.e.h.l.i.LogInterceptor   service finished, serviceName=com.example.hugh.life.controller.UserController#add args=[AddUserArg(account=null, password=1, name=null, email=null, description=null, phone=null)] result=ModelResult(errCode=-1, errMsg=参数错误, data=null) duration=0ms
+01:54:55 [http-nio-6060-exec-6] WARN  c.e.h.l.c.UserController   UserController.add params error arg:AddUserArg(account=null, password=1, name=null, email=null, description=null, phone=null)
+01:54:55 [http-nio-6060-exec-6] INFO  c.e.h.l.i.LogInterceptor   service finished, serviceName=com.example.hugh.life.controller.UserController#add args=[AddUserArg(account=null, password=1, name=null, email=null, description=null, phone=null)] result=ModelResult(errCode=-1, errMsg=参数错误, data=null) duration=2ms
+01:55:06 [http-nio-6060-exec-7] ERROR c.e.h.l.i.LogInterceptor   service exception, serviceName=com.example.hugh.life.controller.UserController#login args=[LoginArg(content=lkb, password=1, type=null)] duration=0ms exception:java.lang.NullPointerException: null
+	at com.example.hugh.life.service.impl.UserServiceImpl.login(UserServiceImpl.java:74)
+	at com.example.hugh.life.controller.UserController.login(UserController.java:32)
+	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
+	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+ [50 skipped]
 
-06:25:56 [main] INFO  c.e.h.l.Backend   Starting Backend on LKB with PID 15052 (F:\life\backend\target\classes started by LKB in F:\life\backend)
-06:25:56 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
-06:25:58 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
-06:25:58 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
-06:25:58 [main] INFO  c.e.h.l.Backend   Started Backend in 2.701 seconds (JVM running for 3.546)
-06:26:36 [http-nio-6060-exec-1] WARN  c.e.h.l.s.i.CurrentWeatherImpl   CurrentWeatherImpl.queryAllUserCurrentWeather begin
-06:26:36 [http-nio-6060-exec-1] INFO  c.z.h.HikariDataSource   HikariPool-1 - Starting...
-06:26:36 [http-nio-6060-exec-1] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-06:26:36 [http-nio-6060-exec-1] INFO  c.z.h.HikariDataSource   HikariPool-1 - Start completed.
-06:26:36 [http-nio-6060-exec-1] WARN  c.e.h.l.s.i.CurrentWeatherImpl   CurrentWeatherImpl.queryAllUserCurrentWeather end
-06:26:36 [http-nio-6060-exec-1] INFO  c.e.h.l.i.LogInterceptor   service finished, serviceName=com.example.hugh.life.controller.WeatherController#callWeather args=[ListWeatherInfoArg(uid=null)] result=ModelResult(errCode=0, errMsg=成功, data=null) duration=135ms
-06:26:59 [main] INFO  c.e.h.l.Backend   Starting Backend on LKB with PID 18540 (F:\life\backend\target\classes started by LKB in F:\life\backend)
-06:26:59 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
-06:27:01 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
-06:27:01 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
-06:27:01 [main] INFO  c.e.h.l.Backend   Started Backend in 2.392 seconds (JVM running for 2.991)
-06:27:08 [http-nio-6060-exec-1] WARN  c.e.h.l.s.i.CurrentWeatherImpl   CurrentWeatherImpl.queryAllUserCurrentWeather begin
-06:27:08 [http-nio-6060-exec-1] INFO  c.z.h.HikariDataSource   HikariPool-1 - Starting...
-06:27:08 [http-nio-6060-exec-1] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-06:27:08 [http-nio-6060-exec-1] INFO  c.z.h.HikariDataSource   HikariPool-1 - Start completed.
-06:27:08 [http-nio-6060-exec-1] ERROR c.e.h.l.i.LogInterceptor   service exception, serviceName=com.example.hugh.life.controller.WeatherController#callWeather args=[ListWeatherInfoArg(uid=null)] duration=117ms exception:java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'null' at line 2
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44) [5 skipped]
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
-	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:108) [6 skipped]
+01:55:06 [http-nio-6060-exec-7] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet]   Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root causejava.lang.NullPointerException: null
+	at com.example.hugh.life.service.impl.UserServiceImpl.login(UserServiceImpl.java:74)
+	at com.example.hugh.life.controller.UserController.login(UserController.java:32)
+	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
+	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+ [50 skipped]
+
+01:55:40 [http-nio-6060-exec-8] INFO  c.z.h.HikariDataSource   HikariPool-1 - Starting...
+01:55:40 [http-nio-6060-exec-8] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+01:55:41 [http-nio-6060-exec-8] ERROR c.z.h.p.HikariPool   HikariPool-1 - Exception during pool initialization.java.sql.SQLException: null,  message from server: "Host '221.4.216.213' is not allowed to connect to this MySQL server"
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:136) [7 skipped]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:369)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:198)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:467)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:541)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:108) [11 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [9 skipped]
+	at com.example.hugh.life.service.impl.UserServiceImpl.login(UserServiceImpl.java:75) [7 skipped]
+	at com.example.hugh.life.controller.UserController.login(UserController.java:32)
+	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
+	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+ [50 skipped]
+
+01:55:41 [http-nio-6060-exec-8] ERROR c.e.h.l.i.LogInterceptor   service exception, serviceName=com.example.hugh.life.controller.UserController#login args=[LoginArg(content=lkb, password=1, type=0)] duration=1131ms exception:java.sql.SQLException: null,  message from server: "Host '221.4.216.213' is not allowed to connect to this MySQL server"
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:136) [7 skipped]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:369)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:198)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:467)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:541)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:108) [11 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [9 skipped]
+	at com.example.hugh.life.service.impl.UserServiceImpl.login(UserServiceImpl.java:75) [7 skipped]
+	at com.example.hugh.life.controller.UserController.login(UserController.java:32)
+	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
+	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+ [50 skipped]
+	... 103 common frames omitted
+Wrapped by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: null,  message from server: "Host '221.4.216.213' is not allowed to connect to this MySQL server"
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:108) [9 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [9 skipped]
+	at com.example.hugh.life.service.impl.UserServiceImpl.login(UserServiceImpl.java:75) [7 skipped]
+	at com.example.hugh.life.controller.UserController.login(UserController.java:32)
+	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
+	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+ [50 skipped]
+	... 91 common frames omitted
+Wrapped by: org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: null,  message from server: "Host '221.4.216.213' is not allowed to connect to this MySQL server"
+### The error may exist in file [C:\Users\ASUS\Desktop\backend\target\classes\mapper\user.xml]
+### The error may involve com.example.hugh.life.dao.api.UserDao.queryUserByAccountAndPassword
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: null,  message from server: "Host '221.4.216.213' is not allowed to connect to this MySQL server"
 	at java.lang.reflect.Method.invoke(Method.java:498) [7 skipped]
-	at java.lang.reflect.Method.invoke(Method.java:498) [10 skipped]
-	at com.example.hugh.life.service.impl.CurrentWeatherImpl.queryAllUserCurrentWeather(CurrentWeatherImpl.java:45) [7 skipped]
-	at com.example.hugh.life.controller.WeatherController.callWeather(WeatherController.java:30)
+	at java.lang.reflect.Method.invoke(Method.java:498) [9 skipped]
+	at com.example.hugh.life.service.impl.UserServiceImpl.login(UserServiceImpl.java:75) [7 skipped]
+	at com.example.hugh.life.controller.UserController.login(UserController.java:32)
 	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
 	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
 	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
  [50 skipped]
-	... 85 common frames omitted
-Wrapped by: org.springframework.jdbc.BadSqlGrammarException: 
-### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'null' at line 2
-### The error may exist in file [F:\life\backend\target\classes\mapper\location.xml]
-### The error may involve com.example.hugh.life.dao.api.LocationDao.queryLocationByUidLimit-Inline
-### The error occurred while setting parameters
-### SQL: select *from location where uid = ?         order by create_time desc limit ?
-### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'null' at line 2
-; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'null' at line 2
-	at java.lang.reflect.Method.invoke(Method.java:498) [13 skipped]
-	at com.example.hugh.life.service.impl.CurrentWeatherImpl.queryAllUserCurrentWeather(CurrentWeatherImpl.java:45) [7 skipped]
-	at com.example.hugh.life.controller.WeatherController.callWeather(WeatherController.java:30)
+	... 84 common frames omitted
+Wrapped by: org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: null,  message from server: "Host '221.4.216.213' is not allowed to connect to this MySQL server"
+### The error may exist in file [C:\Users\ASUS\Desktop\backend\target\classes\mapper\user.xml]
+### The error may involve com.example.hugh.life.dao.api.UserDao.queryUserByAccountAndPassword
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: null,  message from server: "Host '221.4.216.213' is not allowed to connect to this MySQL server"
+	at java.lang.reflect.Method.invoke(Method.java:498) [10 skipped]
+	at com.example.hugh.life.service.impl.UserServiceImpl.login(UserServiceImpl.java:75) [7 skipped]
+	at com.example.hugh.life.controller.UserController.login(UserController.java:32)
 	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
 	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
 	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
  [50 skipped]
 
-06:27:08 [http-nio-6060-exec-1] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet]   Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
-### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'null' at line 2
-### The error may exist in file [F:\life\backend\target\classes\mapper\location.xml]
-### The error may involve com.example.hugh.life.dao.api.LocationDao.queryLocationByUidLimit-Inline
-### The error occurred while setting parameters
-### SQL: select *from location where uid = ?         order by create_time desc limit ?
-### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'null' at line 2
-; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'null' at line 2] with root causejava.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'null' at line 2
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44) [5 skipped]
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
-	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:108) [6 skipped]
+01:55:41 [http-nio-6060-exec-8] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet]   Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: null,  message from server: "Host '221.4.216.213' is not allowed to connect to this MySQL server"
+### The error may exist in file [C:\Users\ASUS\Desktop\backend\target\classes\mapper\user.xml]
+### The error may involve com.example.hugh.life.dao.api.UserDao.queryUserByAccountAndPassword
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: null,  message from server: "Host '221.4.216.213' is not allowed to connect to this MySQL server"] with root causejava.sql.SQLException: null,  message from server: "Host '221.4.216.213' is not allowed to connect to this MySQL server"
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:136) [7 skipped]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:369)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:198)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:467)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:541)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:108) [11 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [9 skipped]
+	at com.example.hugh.life.service.impl.UserServiceImpl.login(UserServiceImpl.java:75) [7 skipped]
+	at com.example.hugh.life.controller.UserController.login(UserController.java:32)
+	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
+	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+ [50 skipped]
+
+02:15:23 [main] INFO  c.e.h.l.Backend   Starting Backend on LAPTOP-BFTFA9BI with PID 34604 (C:\Users\ASUS\Desktop\backend\target\classes started by ASUS in C:\Users\ASUS\Desktop\backend)
+02:15:23 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
+02:15:26 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
+02:15:26 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
+02:15:26 [main] INFO  c.e.h.l.Backend   Started Backend in 3.831 seconds (JVM running for 4.895)
+02:15:32 [http-nio-6060-exec-3] INFO  c.z.h.HikariDataSource   HikariPool-1 - Starting...
+02:15:32 [http-nio-6060-exec-3] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+02:15:33 [http-nio-6060-exec-3] ERROR c.z.h.p.HikariPool   HikariPool-1 - Exception during pool initialization.java.sql.SQLException: null,  message from server: "Host '221.4.216.213' is not allowed to connect to this MySQL server"
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:136) [7 skipped]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:369)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:198)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:467)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:541)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:108) [11 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [9 skipped]
+	at com.example.hugh.life.service.impl.UserServiceImpl.login(UserServiceImpl.java:75) [7 skipped]
+	at com.example.hugh.life.controller.UserController.login(UserController.java:32)
+	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
+	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+ [50 skipped]
+
+02:15:33 [http-nio-6060-exec-3] ERROR c.e.h.l.i.LogInterceptor   service exception, serviceName=com.example.hugh.life.controller.UserController#login args=[LoginArg(content=lkb, password=1, type=0)] duration=1121ms exception:java.sql.SQLException: null,  message from server: "Host '221.4.216.213' is not allowed to connect to this MySQL server"
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:136) [7 skipped]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:369)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:198)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:467)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:541)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:108) [11 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [9 skipped]
+	at com.example.hugh.life.service.impl.UserServiceImpl.login(UserServiceImpl.java:75) [7 skipped]
+	at com.example.hugh.life.controller.UserController.login(UserController.java:32)
+	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
+	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+ [50 skipped]
+	... 103 common frames omitted
+Wrapped by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: null,  message from server: "Host '221.4.216.213' is not allowed to connect to this MySQL server"
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:108) [9 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [9 skipped]
+	at com.example.hugh.life.service.impl.UserServiceImpl.login(UserServiceImpl.java:75) [7 skipped]
+	at com.example.hugh.life.controller.UserController.login(UserController.java:32)
+	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
+	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+ [50 skipped]
+	... 91 common frames omitted
+Wrapped by: org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: null,  message from server: "Host '221.4.216.213' is not allowed to connect to this MySQL server"
+### The error may exist in file [C:\Users\ASUS\Desktop\backend\target\classes\mapper\user.xml]
+### The error may involve com.example.hugh.life.dao.api.UserDao.queryUserByAccountAndPassword
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: null,  message from server: "Host '221.4.216.213' is not allowed to connect to this MySQL server"
 	at java.lang.reflect.Method.invoke(Method.java:498) [7 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [9 skipped]
+	at com.example.hugh.life.service.impl.UserServiceImpl.login(UserServiceImpl.java:75) [7 skipped]
+	at com.example.hugh.life.controller.UserController.login(UserController.java:32)
+	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
+	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+ [50 skipped]
+	... 84 common frames omitted
+Wrapped by: org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: null,  message from server: "Host '221.4.216.213' is not allowed to connect to this MySQL server"
+### The error may exist in file [C:\Users\ASUS\Desktop\backend\target\classes\mapper\user.xml]
+### The error may involve com.example.hugh.life.dao.api.UserDao.queryUserByAccountAndPassword
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: null,  message from server: "Host '221.4.216.213' is not allowed to connect to this MySQL server"
 	at java.lang.reflect.Method.invoke(Method.java:498) [10 skipped]
-	at com.example.hugh.life.service.impl.CurrentWeatherImpl.queryAllUserCurrentWeather(CurrentWeatherImpl.java:45) [7 skipped]
-	at com.example.hugh.life.controller.WeatherController.callWeather(WeatherController.java:30)
+	at com.example.hugh.life.service.impl.UserServiceImpl.login(UserServiceImpl.java:75) [7 skipped]
+	at com.example.hugh.life.controller.UserController.login(UserController.java:32)
 	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
 	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
 	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
  [50 skipped]
 
-06:30:33 [main] INFO  c.e.h.l.Backend   Starting Backend on LKB with PID 8840 (F:\life\backend\target\classes started by LKB in F:\life\backend)
-06:30:33 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
-06:30:35 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
-06:30:35 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
-06:30:35 [main] INFO  c.e.h.l.Backend   Started Backend in 2.242 seconds (JVM running for 2.863)
-06:30:56 [http-nio-6060-exec-1] WARN  c.e.h.l.s.i.CurrentWeatherImpl   CurrentWeatherImpl.queryAllUserCurrentWeather begin
-06:30:56 [http-nio-6060-exec-1] INFO  c.z.h.HikariDataSource   HikariPool-1 - Starting...
-06:30:56 [http-nio-6060-exec-1] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-06:30:56 [http-nio-6060-exec-1] INFO  c.z.h.HikariDataSource   HikariPool-1 - Start completed.
-07:51:18 [main] INFO  c.e.h.l.Backend   Starting Backend on LKB with PID 2108 (F:\life\backend\target\classes started by LKB in F:\life\backend)
-07:51:18 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
-07:51:20 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
-07:51:20 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
-07:51:20 [main] INFO  c.e.h.l.Backend   Started Backend in 2.462 seconds (JVM running for 3.386)
-07:51:49 [http-nio-6060-exec-1] INFO  c.z.h.HikariDataSource   HikariPool-1 - Starting...
-07:51:49 [http-nio-6060-exec-1] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-07:51:49 [http-nio-6060-exec-1] INFO  c.z.h.HikariDataSource   HikariPool-1 - Start completed.
-07:52:16 [http-nio-6060-exec-1] INFO  c.e.h.l.i.LogInterceptor   service finished, serviceName=com.example.hugh.life.controller.RecommendController#recommendSearchContent args=[RecommendSearchContentArg(userId=0a6a4fac0f2845708c5bfc1be8a25b7b, content=幸福, type=2)] result=ModelResult(errCode=0, errMsg=成功, data=[]) duration=26700ms
-07:52:19 [main] INFO  c.e.h.l.Backend   Starting Backend on LKB with PID 16496 (F:\life\backend\target\classes started by LKB in F:\life\backend)
-07:52:19 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
-07:52:22 [main] INFO  c.e.h.l.Backend   Starting Backend on LKB with PID 21136 (F:\life\backend\target\classes started by LKB in F:\life\backend)
-07:52:22 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
-07:52:24 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
-07:52:24 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
-07:52:24 [main] INFO  c.e.h.l.Backend   Started Backend in 2.407 seconds (JVM running for 3.31)
-07:52:34 [http-nio-6060-exec-2] INFO  c.z.h.HikariDataSource   HikariPool-1 - Starting...
-07:52:34 [http-nio-6060-exec-2] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-07:52:34 [http-nio-6060-exec-2] INFO  c.z.h.HikariDataSource   HikariPool-1 - Start completed.
-08:02:22 [HikariPool-1 housekeeper] WARN  c.z.h.p.HikariPool   HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m48s391ms445µs25ns).
-14:41:35 [main] WARN  o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer   
+02:15:33 [http-nio-6060-exec-3] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet]   Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: null,  message from server: "Host '221.4.216.213' is not allowed to connect to this MySQL server"
+### The error may exist in file [C:\Users\ASUS\Desktop\backend\target\classes\mapper\user.xml]
+### The error may involve com.example.hugh.life.dao.api.UserDao.queryUserByAccountAndPassword
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: null,  message from server: "Host '221.4.216.213' is not allowed to connect to this MySQL server"] with root causejava.sql.SQLException: null,  message from server: "Host '221.4.216.213' is not allowed to connect to this MySQL server"
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:136) [7 skipped]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:369)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:198)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:467)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:541)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:108) [11 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [9 skipped]
+	at com.example.hugh.life.service.impl.UserServiceImpl.login(UserServiceImpl.java:75) [7 skipped]
+	at com.example.hugh.life.controller.UserController.login(UserController.java:32)
+	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
+	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+ [50 skipped]
 
-Found multiple occurrences of org.json.JSONObject on the class path:
+02:19:14 [main] INFO  c.e.h.l.Backend   Starting Backend on LAPTOP-BFTFA9BI with PID 31284 (C:\Users\ASUS\Desktop\backend\target\classes started by ASUS in C:\Users\ASUS\Desktop\backend)
+02:19:14 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
+02:19:17 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
+02:19:17 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
+02:19:17 [main] INFO  c.e.h.l.Backend   Started Backend in 3.676 seconds (JVM running for 4.494)
+02:19:22 [http-nio-6060-exec-1] INFO  c.z.h.HikariDataSource   HikariPool-1 - Starting...
+02:19:22 [http-nio-6060-exec-1] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+02:19:23 [http-nio-6060-exec-1] ERROR c.z.h.p.HikariPool   HikariPool-1 - Exception during pool initialization.java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:136) [7 skipped]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:369)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:198)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:467)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:541)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:108) [11 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [9 skipped]
+	at com.example.hugh.life.service.impl.UserServiceImpl.login(UserServiceImpl.java:75) [7 skipped]
+	at com.example.hugh.life.controller.UserController.login(UserController.java:32)
+	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
+	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+ [50 skipped]
 
-	jar:file:/C:/Users/LKB/.m2/repository/org/json/json/20170516/json-20170516.jar!/org/json/JSONObject.class
-	jar:file:/C:/Users/LKB/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+02:19:23 [http-nio-6060-exec-1] ERROR c.e.h.l.i.LogInterceptor   service exception, serviceName=com.example.hugh.life.controller.UserController#login args=[LoginArg(content=lkb, password=1, type=0)] duration=1135ms exception:java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:136) [7 skipped]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:369)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:198)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:467)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:541)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:108) [11 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [9 skipped]
+	at com.example.hugh.life.service.impl.UserServiceImpl.login(UserServiceImpl.java:75) [7 skipped]
+	at com.example.hugh.life.controller.UserController.login(UserController.java:32)
+	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
+	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+ [50 skipped]
+	... 103 common frames omitted
+Wrapped by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:108) [9 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [9 skipped]
+	at com.example.hugh.life.service.impl.UserServiceImpl.login(UserServiceImpl.java:75) [7 skipped]
+	at com.example.hugh.life.controller.UserController.login(UserController.java:32)
+	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
+	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+ [50 skipped]
+	... 91 common frames omitted
+Wrapped by: org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+### The error may exist in file [C:\Users\ASUS\Desktop\backend\target\classes\mapper\user.xml]
+### The error may involve com.example.hugh.life.dao.api.UserDao.queryUserByAccountAndPassword
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at java.lang.reflect.Method.invoke(Method.java:498) [7 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [9 skipped]
+	at com.example.hugh.life.service.impl.UserServiceImpl.login(UserServiceImpl.java:75) [7 skipped]
+	at com.example.hugh.life.controller.UserController.login(UserController.java:32)
+	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
+	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+ [50 skipped]
+	... 84 common frames omitted
+Wrapped by: org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+### The error may exist in file [C:\Users\ASUS\Desktop\backend\target\classes\mapper\user.xml]
+### The error may involve com.example.hugh.life.dao.api.UserDao.queryUserByAccountAndPassword
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at java.lang.reflect.Method.invoke(Method.java:498) [10 skipped]
+	at com.example.hugh.life.service.impl.UserServiceImpl.login(UserServiceImpl.java:75) [7 skipped]
+	at com.example.hugh.life.controller.UserController.login(UserController.java:32)
+	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
+	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+ [50 skipped]
 
-You may wish to exclude one of them to ensure predictable runtime behavior
+02:19:23 [http-nio-6060-exec-1] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet]   Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+### The error may exist in file [C:\Users\ASUS\Desktop\backend\target\classes\mapper\user.xml]
+### The error may involve com.example.hugh.life.dao.api.UserDao.queryUserByAccountAndPassword
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed] with root causejava.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:136) [7 skipped]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:369)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:198)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:467)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:541)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:108) [11 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [9 skipped]
+	at com.example.hugh.life.service.impl.UserServiceImpl.login(UserServiceImpl.java:75) [7 skipped]
+	at com.example.hugh.life.controller.UserController.login(UserController.java:32)
+	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
+	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+ [50 skipped]
 
-14:41:35 [main] INFO  c.e.p.y.UserTests   Starting UserTests on LKB with PID 25744 (started by LKB in F:\life\backend)
-14:41:35 [main] INFO  c.e.p.y.UserTests   The following profiles are active: dev
-14:41:35 [main] WARN  o.s.w.c.s.GenericWebApplicationContext   Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'application': Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javafx.application.Application]: Is it an abstract class?; nested exception is java.lang.InstantiationException
-14:41:35 [main] ERROR o.s.b.SpringApplication   Application run failedjava.lang.InstantiationException: null
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) [1 skipped]
- [46 skipped]
-	... 45 common frames omitted
-Wrapped by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [javafx.application.Application]: Is it an abstract class?; nested exception is java.lang.InstantiationException
- [46 skipped]
-	... 43 common frames omitted
-Wrapped by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'application': Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javafx.application.Application]: Is it an abstract class?; nested exception is java.lang.InstantiationException
- [44 skipped]
+02:20:35 [main] INFO  c.e.h.l.Backend   Starting Backend on LAPTOP-BFTFA9BI with PID 34852 (C:\Users\ASUS\Desktop\backend\target\classes started by ASUS in C:\Users\ASUS\Desktop\backend)
+02:20:35 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
+02:20:37 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
+02:20:37 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
+02:20:38 [main] INFO  c.e.h.l.Backend   Started Backend in 3.517 seconds (JVM running for 4.338)
+02:20:45 [http-nio-6060-exec-2] INFO  c.z.h.HikariDataSource   HikariPool-1 - Starting...
+02:20:45 [http-nio-6060-exec-2] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+02:20:45 [http-nio-6060-exec-2] INFO  c.z.h.HikariDataSource   HikariPool-1 - Start completed.
+02:20:45 [http-nio-6060-exec-2] INFO  c.e.h.l.i.LogInterceptor   service finished, serviceName=com.example.hugh.life.controller.UserController#login args=[LoginArg(content=lkb, password=1, type=0)] result=ModelResult(errCode=0, errMsg=成功, data=LoginResult(id=0a6a4fac0f2845708c5bfc1be8a25b7b)) duration=561ms
+02:25:35 [main] INFO  c.e.h.l.Backend   Starting Backend on LAPTOP-BFTFA9BI with PID 36684 (C:\Users\ASUS\Desktop\backend\target\classes started by ASUS in C:\Users\ASUS\Desktop\backend)
+02:25:35 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
+02:25:37 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
+02:25:37 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
+02:25:38 [main] INFO  c.e.h.l.Backend   Started Backend in 3.996 seconds (JVM running for 6.178)
+02:25:45 [http-nio-6060-exec-2] INFO  c.z.h.HikariDataSource   HikariPool-1 - Starting...
+02:25:45 [http-nio-6060-exec-2] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+02:25:45 [http-nio-6060-exec-2] INFO  c.z.h.HikariDataSource   HikariPool-1 - Start completed.
+02:25:45 [http-nio-6060-exec-2] INFO  c.e.h.l.i.LogInterceptor   service finished, serviceName=com.example.hugh.life.controller.UserController#login args=[LoginArg(content=lkb, password=1, type=0)] result=ModelResult(errCode=0, errMsg=成功, data=LoginResult(id=0a6a4fac0f2845708c5bfc1be8a25b7b)) duration=341ms
+02:27:11 [http-nio-6060-exec-5] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver   Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
+ at [Source: (PushbackInputStream); line: 3, column: 2]]
+02:27:19 [http-nio-6060-exec-7] INFO  c.e.h.l.i.LogInterceptor   service finished, serviceName=com.example.hugh.life.controller.RecommendController#simpleRecommend args=[SimpleRecommendArg(userId=0a6a4fac0f2845708c5bfc1be8a25b7b)] result=ModelResult(errCode=0, errMsg=成功, data=[RecommendUsuallyResult(id=0bb9ce2a082447fda2121e3b9667a9b5, type=2, coverUrl=https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2507709428.jpg, detailUrl=https://movie.douban.com/subject/26787574/, peopleContent=导演：斯蒂芬·卓博斯基 主演：诺亚·尤佩/雅各布·特伦布莱/艾玛·特伦布莱, otherContent=null, title=奇迹男孩, rate=8.6), RecommendUsuallyResult(id=1c75f5836cad4253a2e2ba95240443a2, type=2, coverUrl=https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2458687725.jpg, detailUrl=https://movie.douban.com/subject/26848504/, peopleContent=导演：山田洋次 主演：苍井优/吉行和子/风吹淳, otherContent=null, title=家族之苦2, rate=8.4), RecommendUsuallyResult(id=5ece1beca25440d1b3d7846e9bc7dc83, type=2, coverUrl=https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2363277440.jpg, detailUrl=https://movie.douban.com/subject/26420626/, peopleContent=导演：菲利普·里奥雷 主演：霍腾瑟·蒙桑容/米拉·莫罗-尚帕涅/提默泽·冯·道普, otherContent=null, title=约翰之子, rate=8.4)]) duration=1111ms
+02:27:26 [Thread-13] INFO  c.z.h.HikariDataSource   HikariPool-1 - Shutdown initiated...
+02:27:26 [Thread-13] INFO  c.z.h.HikariDataSource   HikariPool-1 - Shutdown completed.
+02:27:30 [main] INFO  c.e.h.l.Backend   Starting Backend on LAPTOP-BFTFA9BI with PID 31792 (C:\Users\ASUS\Desktop\backend\target\classes started by ASUS in C:\Users\ASUS\Desktop\backend)
+02:27:30 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
+02:28:03 [main] INFO  c.e.h.l.Backend   Starting Backend on LAPTOP-BFTFA9BI with PID 24728 (C:\Users\ASUS\Desktop\backend\target\classes started by ASUS in C:\Users\ASUS\Desktop\backend)
+02:28:03 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
+02:28:06 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
+02:28:06 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
+02:28:06 [main] INFO  c.e.h.l.Backend   Started Backend in 3.785 seconds (JVM running for 4.652)
+02:28:24 [main] INFO  c.e.h.l.Backend   Starting Backend on LAPTOP-BFTFA9BI with PID 36708 (C:\Users\ASUS\Desktop\backend\target\classes started by ASUS in C:\Users\ASUS\Desktop\backend)
+02:28:24 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
+02:28:26 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
+02:28:26 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
+02:28:27 [main] INFO  c.e.h.l.Backend   Started Backend in 4.028 seconds (JVM running for 5.291)
+02:28:29 [http-nio-6060-exec-2] INFO  c.z.h.HikariDataSource   HikariPool-1 - Starting...
+02:28:29 [http-nio-6060-exec-2] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+02:28:29 [http-nio-6060-exec-2] INFO  c.z.h.HikariDataSource   HikariPool-1 - Start completed.
+02:28:31 [http-nio-6060-exec-2] INFO  c.e.h.l.i.LogInterceptor   service finished, serviceName=com.example.hugh.life.controller.RecommendController#simpleRecommend args=[SimpleRecommendArg(userId=0a6a4fac0f2845708c5bfc1be8a25b7b)] result=ModelResult(errCode=0, errMsg=成功, data=[RecommendUsuallyResult(id=0bb9ce2a082447fda2121e3b9667a9b5, type=2, coverUrl=https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2507709428.jpg, detailUrl=https://movie.douban.com/subject/26787574/, peopleContent=导演：斯蒂芬·卓博斯基 主演：诺亚·尤佩/雅各布·特伦布莱/艾玛·特伦布莱, otherContent=null, title=奇迹男孩, rate=8.6), RecommendUsuallyResult(id=1c75f5836cad4253a2e2ba95240443a2, type=2, coverUrl=https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2458687725.jpg, detailUrl=https://movie.douban.com/subject/26848504/, peopleContent=导演：山田洋次 主演：苍井优/吉行和子/风吹淳, otherContent=null, title=家族之苦2, rate=8.4), RecommendUsuallyResult(id=5ece1beca25440d1b3d7846e9bc7dc83, type=2, coverUrl=https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2363277440.jpg, detailUrl=https://movie.douban.com/subject/26420626/, peopleContent=导演：菲利普·里奥雷 主演：霍腾瑟·蒙桑容/米拉·莫罗-尚帕涅/提默泽·冯·道普, otherContent=null, title=约翰之子, rate=8.4)]) duration=1408ms
+02:29:17 [Thread-13] INFO  c.z.h.HikariDataSource   HikariPool-1 - Shutdown initiated...
+02:29:17 [Thread-13] INFO  c.z.h.HikariDataSource   HikariPool-1 - Shutdown completed.
+02:29:23 [main] INFO  c.e.h.l.Backend   Starting Backend on LAPTOP-BFTFA9BI with PID 33952 (C:\Users\ASUS\Desktop\backend\target\classes started by ASUS in C:\Users\ASUS\Desktop\backend)
+02:29:23 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
+02:29:26 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
+02:29:26 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
+02:29:27 [main] INFO  c.e.h.l.Backend   Started Backend in 3.872 seconds (JVM running for 5.059)
+02:29:31 [http-nio-6060-exec-1] INFO  c.z.h.HikariDataSource   HikariPool-1 - Starting...
+02:29:31 [http-nio-6060-exec-1] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+02:29:31 [http-nio-6060-exec-1] INFO  c.z.h.HikariDataSource   HikariPool-1 - Start completed.
+02:30:16 [http-nio-6060-exec-1] INFO  c.e.h.l.i.LogInterceptor   service finished, serviceName=com.example.hugh.life.controller.RecommendController#simpleRecommend args=[SimpleRecommendArg(userId=0a6a4fac0f2845708c5bfc1be8a25b7b)] result=ModelResult(errCode=0, errMsg=成功, data=[RecommendUsuallyResult(id=0bb9ce2a082447fda2121e3b9667a9b5, type=2, coverUrl=https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2507709428.jpg, detailUrl=https://movie.douban.com/subject/26787574/, peopleContent=导演：斯蒂芬·卓博斯基 主演：诺亚·尤佩/雅各布·特伦布莱/艾玛·特伦布莱, otherContent=null, title=奇迹男孩, rate=8.6), RecommendUsuallyResult(id=1c75f5836cad4253a2e2ba95240443a2, type=2, coverUrl=https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2458687725.jpg, detailUrl=https://movie.douban.com/subject/26848504/, peopleContent=导演：山田洋次 主演：苍井优/吉行和子/风吹淳, otherContent=null, title=家族之苦2, rate=8.4), RecommendUsuallyResult(id=5ece1beca25440d1b3d7846e9bc7dc83, type=2, coverUrl=https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2363277440.jpg, detailUrl=https://movie.douban.com/subject/26420626/, peopleContent=导演：菲利普·里奥雷 主演：霍腾瑟·蒙桑容/米拉·莫罗-尚帕涅/提默泽·冯·道普, otherContent=null, title=约翰之子, rate=8.4)]) duration=44835ms
+02:30:16 [Thread-13] INFO  c.z.h.HikariDataSource   HikariPool-1 - Shutdown initiated...
+02:30:16 [Thread-13] INFO  c.z.h.HikariDataSource   HikariPool-1 - Shutdown completed.
+02:31:38 [main] INFO  c.e.h.l.Backend   Starting Backend on LAPTOP-BFTFA9BI with PID 12348 (C:\Users\ASUS\Desktop\backend\target\classes started by ASUS in C:\Users\ASUS\Desktop\backend)
+02:31:38 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
+02:31:41 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
+02:31:41 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
+02:31:41 [main] INFO  c.e.h.l.Backend   Started Backend in 4.142 seconds (JVM running for 5.395)
+02:33:42 [http-nio-6060-exec-2] INFO  c.z.h.HikariDataSource   HikariPool-1 - Starting...
+02:33:42 [http-nio-6060-exec-2] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+02:33:42 [http-nio-6060-exec-2] INFO  c.z.h.HikariDataSource   HikariPool-1 - Start completed.
+02:35:51 [HikariPool-1 housekeeper] WARN  c.z.h.p.HikariPool   HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m9s49ms484µs225ns).
+02:35:51 [Thread-13] INFO  c.z.h.HikariDataSource   HikariPool-1 - Shutdown initiated...
+02:35:51 [http-nio-6060-exec-2] ERROR c.e.h.l.i.LogInterceptor   service exception, serviceName=com.example.hugh.life.controller.SearchInfoController#searchAction args=[SearchActionArg(userId=0a6a4fac0f2845708c5bfc1be8a25b7b, content=哈哈, type=1)] duration=217864ms exception:java.sql.SQLException: HikariDataSource HikariDataSource (HikariPool-1) has been closed.
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:96)
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:108) [11 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [9 skipped]
+	... 108 common frames omitted
+Wrapped by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: HikariDataSource HikariDataSource (HikariPool-1) has been closed.
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:108) [9 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [9 skipped]
+	at com.example.hugh.life.service.manager.KeyWordManager.keyWord(KeyWordManager.java:40) [7 skipped]
+	at com.example.hugh.life.service.impl.SearchInfoServiceImpl.searchAction(SearchInfoServiceImpl.java:294) [4 skipped]
+	at com.example.hugh.life.controller.SearchInfoController.searchAction(SearchInfoController.java:76)
+	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
+	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+ [50 skipped]
+	... 96 common frames omitted
+Wrapped by: org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: HikariDataSource HikariDataSource (HikariPool-1) has been closed.
+### The error may exist in file [C:\Users\ASUS\Desktop\backend\target\classes\mapper\bookInfo.xml]
+### The error may involve com.example.hugh.life.dao.api.BookInfoDao.queryByDouBanId
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: HikariDataSource HikariDataSource (HikariPool-1) has been closed.
+	at java.lang.reflect.Method.invoke(Method.java:498) [7 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [9 skipped]
+	at com.example.hugh.life.service.manager.KeyWordManager.keyWord(KeyWordManager.java:40) [7 skipped]
+	at com.example.hugh.life.service.impl.SearchInfoServiceImpl.searchAction(SearchInfoServiceImpl.java:294) [4 skipped]
+	at com.example.hugh.life.controller.SearchInfoController.searchAction(SearchInfoController.java:76)
+	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
+	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+ [50 skipped]
+	... 89 common frames omitted
+Wrapped by: org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: HikariDataSource HikariDataSource (HikariPool-1) has been closed.
+### The error may exist in file [C:\Users\ASUS\Desktop\backend\target\classes\mapper\bookInfo.xml]
+### The error may involve com.example.hugh.life.dao.api.BookInfoDao.queryByDouBanId
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: HikariDataSource HikariDataSource (HikariPool-1) has been closed.
+	at java.lang.reflect.Method.invoke(Method.java:498) [10 skipped]
+	at com.example.hugh.life.service.manager.KeyWordManager.keyWord(KeyWordManager.java:40) [7 skipped]
+	at com.example.hugh.life.service.impl.SearchInfoServiceImpl.searchAction(SearchInfoServiceImpl.java:294) [4 skipped]
+	at com.example.hugh.life.controller.SearchInfoController.searchAction(SearchInfoController.java:76)
+	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
+	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+ [50 skipped]
 
-14:41:35 [main] ERROR o.s.t.c.TestContextManager   Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@25a6944c] to prepare test instance [com.example.phoebe.youtiao.UserTests@5e1fa5b1]java.lang.InstantiationException: null
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) [1 skipped]
- [46 skipped]
-	... 45 common frames omitted
-Wrapped by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [javafx.application.Application]: Is it an abstract class?; nested exception is java.lang.InstantiationException
- [46 skipped]
-	... 43 common frames omitted
-Wrapped by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'application': Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javafx.application.Application]: Is it an abstract class?; nested exception is java.lang.InstantiationException
- [44 skipped]
-	... 27 common frames omitted
-Wrapped by: java.lang.IllegalStateException: Failed to load ApplicationContext
- [28 skipped]
+02:35:52 [Thread-13] INFO  c.z.h.HikariDataSource   HikariPool-1 - Shutdown completed.
+02:36:00 [main] INFO  c.e.h.l.Backend   Starting Backend on LAPTOP-BFTFA9BI with PID 17832 (C:\Users\ASUS\Desktop\backend\target\classes started by ASUS in C:\Users\ASUS\Desktop\backend)
+02:36:00 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
+02:36:02 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
+02:36:02 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
+02:36:03 [main] INFO  c.e.h.l.Backend   Started Backend in 3.71 seconds (JVM running for 4.833)
+02:36:18 [http-nio-6060-exec-1] INFO  c.z.h.HikariDataSource   HikariPool-1 - Starting...
+02:36:18 [http-nio-6060-exec-1] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+02:36:18 [http-nio-6060-exec-1] INFO  c.z.h.HikariDataSource   HikariPool-1 - Start completed.
+02:36:18 [http-nio-6060-exec-1] INFO  c.e.h.l.i.LogInterceptor   service finished, serviceName=com.example.hugh.life.controller.SearchInfoController#searchAction args=[SearchActionArg(userId=0a6a4fac0f2845708c5bfc1be8a25b7b, content=哈哈, type=1)] result=ModelResult(errCode=0, errMsg=成功, data=[RecommendUsuallyResult(id=9aa50996a3134246a318c3691001eef5, type=1, coverUrl=https://img3.doubanio.com/view/subject/m/public/s8895481.jpg, detailUrl=https://book.douban.com/subject/6827375/, peopleContent=null, otherContent=null, title=名花虽有主 我来松松土, rate=0.0), RecommendUsuallyResult(id=e3155799c4fb4daf936cfb72497eb142, type=1, coverUrl=https://img1.doubanio.com/view/subject/m/public/s28012848.jpg, detailUrl=https://book.douban.com/subject/4438125/, peopleContent=null, otherContent=null, title=世界幽默经典:情爱幽默, rate=0.0), RecommendUsuallyResult(id=fab01026a160402a90cb80507eb28cb6, type=1, coverUrl=https://img3.doubanio.com/view/subject/m/public/s9062073.jpg, detailUrl=https://book.douban.com/subject/10582223/, peopleContent=null, otherContent=null, title=人人都爱囧笑话, rate=0.0)]) duration=8582ms
+02:36:31 [Thread-12] INFO  c.z.h.HikariDataSource   HikariPool-1 - Shutdown initiated...
+02:36:31 [Thread-12] INFO  c.z.h.HikariDataSource   HikariPool-1 - Shutdown completed.
+02:36:38 [main] INFO  c.e.h.l.Backend   Starting Backend on LAPTOP-BFTFA9BI with PID 36452 (C:\Users\ASUS\Desktop\backend\target\classes started by ASUS in C:\Users\ASUS\Desktop\backend)
+02:36:38 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
+02:36:41 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
+02:36:41 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
+02:36:42 [main] INFO  c.e.h.l.Backend   Started Backend in 3.619 seconds (JVM running for 4.938)
+02:36:51 [http-nio-6060-exec-1] INFO  c.z.h.HikariDataSource   HikariPool-1 - Starting...
+02:36:51 [http-nio-6060-exec-1] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+02:36:51 [http-nio-6060-exec-1] INFO  c.z.h.HikariDataSource   HikariPool-1 - Start completed.
+02:47:28 [HikariPool-1 housekeeper] WARN  c.z.h.p.HikariPool   HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m37s253ms698µs964ns).
+02:47:28 [http-nio-6060-exec-1] INFO  c.e.h.l.i.LogInterceptor   service finished, serviceName=com.example.hugh.life.controller.SearchInfoController#searchAction args=[SearchActionArg(userId=0a6a4fac0f2845708c5bfc1be8a25b7b, content=哈哈, type=1)] result=ModelResult(errCode=0, errMsg=成功, data=[RecommendUsuallyResult(id=65bc345ad839418a8229dc05a37188b1, type=1, coverUrl=https://img3.doubanio.com/view/subject/m/public/s8895481.jpg, detailUrl=https://book.douban.com/subject/6827375/, peopleContent=null, otherContent=null, title=名花虽有主 我来松松土, rate=0.0), RecommendUsuallyResult(id=b62909fc04944906a19dabf3fc2b1f06, type=1, coverUrl=https://img1.doubanio.com/view/subject/m/public/s28012848.jpg, detailUrl=https://book.douban.com/subject/4438125/, peopleContent=null, otherContent=null, title=世界幽默经典:情爱幽默, rate=0.0), RecommendUsuallyResult(id=8f10e7558b6448a48ab517a73437f766, type=1, coverUrl=https://img3.doubanio.com/view/subject/m/public/s9062073.jpg, detailUrl=https://book.douban.com/subject/10582223/, peopleContent=null, otherContent=null, title=人人都爱囧笑话, rate=0.0)]) duration=638532ms
+02:47:28 [Thread-13] INFO  c.z.h.HikariDataSource   HikariPool-1 - Shutdown initiated...
+02:47:29 [Thread-13] INFO  c.z.h.HikariDataSource   HikariPool-1 - Shutdown completed.
+02:47:38 [main] INFO  c.e.h.l.Backend   Starting Backend on LAPTOP-BFTFA9BI with PID 36728 (C:\Users\ASUS\Desktop\backend\target\classes started by ASUS in C:\Users\ASUS\Desktop\backend)
+02:47:38 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
+02:47:41 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
+02:47:41 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
+02:47:41 [main] INFO  c.e.h.l.Backend   Started Backend in 3.564 seconds (JVM running for 4.403)
+02:47:50 [http-nio-6060-exec-3] INFO  c.z.h.HikariDataSource   HikariPool-1 - Starting...
+02:47:50 [http-nio-6060-exec-3] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+02:47:50 [http-nio-6060-exec-3] INFO  c.z.h.HikariDataSource   HikariPool-1 - Start completed.
+02:47:51 [http-nio-6060-exec-3] INFO  c.e.h.l.i.LogInterceptor   service finished, serviceName=com.example.hugh.life.controller.SearchInfoController#searchAction args=[SearchActionArg(userId=0a6a4fac0f2845708c5bfc1be8a25b7b, content=哈哈, type=1)] result=ModelResult(errCode=0, errMsg=成功, data=[]) duration=1080ms
+02:48:13 [http-nio-6060-exec-1] INFO  c.e.h.l.i.LogInterceptor   service finished, serviceName=com.example.hugh.life.controller.SearchInfoController#searchAction args=[SearchActionArg(userId=0a6a4fac0f2845708c5bfc1be8a25b7b, content=lalal, type=1)] result=ModelResult(errCode=0, errMsg=成功, data=[RecommendUsuallyResult(id=cef4bb719a484ec2a33691fc766564ea, type=1, coverUrl=https://img3.doubanio.com/view/subject/m/public/s1511983.jpg, detailUrl=https://book.douban.com/subject/1687774/, peopleContent=作者：棉棉/Mianmian, otherContent=null, title=La la la., rate=7.9), RecommendUsuallyResult(id=18ed7256543348d287828304daa6b248, type=1, coverUrl=https://img3.doubanio.com/view/subject/m/public/s3337992.jpg, detailUrl=https://book.douban.com/subject/3277516/, peopleContent=作者：棉棉/Mianmian, otherContent=null, title=La la la., rate=0.0), RecommendUsuallyResult(id=bc3e6fbf9f7d415f827c409f0712d216, type=1, coverUrl=https://img3.doubanio.com/view/subject/m/public/s29346941.jpg, detailUrl=https://book.douban.com/subject/26975508/, peopleContent=作者：Justin Hurwitz, otherContent=null, title=La La Land, rate=0.0)]) duration=1900ms
+02:49:16 [http-nio-6060-exec-6] INFO  c.e.h.l.i.LogInterceptor   service finished, serviceName=com.example.hugh.life.controller.SearchInfoController#searchAction args=[SearchActionArg(userId=0a6a4fac0f2845708c5bfc1be8a25b7b, content=哈哈, type=1)] result=ModelResult(errCode=0, errMsg=成功, data=[]) duration=331ms
+02:50:05 [main] INFO  c.e.h.l.Backend   Starting Backend on LAPTOP-BFTFA9BI with PID 33884 (C:\Users\ASUS\Desktop\backend\target\classes started by ASUS in C:\Users\ASUS\Desktop\backend)
+02:50:05 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
+02:50:08 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
+02:50:08 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
+02:50:09 [main] INFO  c.e.h.l.Backend   Started Backend in 4.069 seconds (JVM running for 5.363)
+02:50:35 [http-nio-6060-exec-1] INFO  c.z.h.HikariDataSource   HikariPool-1 - Starting...
+02:50:36 [http-nio-6060-exec-1] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+02:50:36 [http-nio-6060-exec-1] INFO  c.z.h.HikariDataSource   HikariPool-1 - Start completed.
+02:51:07 [http-nio-6060-exec-1] INFO  c.e.h.l.i.LogInterceptor   service finished, serviceName=com.example.hugh.life.controller.SearchInfoController#searchAction args=[SearchActionArg(userId=0a6a4fac0f2845708c5bfc1be8a25b7b, content=哈哈, type=1)] result=ModelResult(errCode=0, errMsg=成功, data=[]) duration=57480ms
+02:51:07 [Thread-13] INFO  c.z.h.HikariDataSource   HikariPool-1 - Shutdown initiated...
+02:51:07 [Thread-13] INFO  c.z.h.HikariDataSource   HikariPool-1 - Shutdown completed.
+02:51:12 [main] INFO  c.e.h.l.Backend   Starting Backend on LAPTOP-BFTFA9BI with PID 32308 (C:\Users\ASUS\Desktop\backend\target\classes started by ASUS in C:\Users\ASUS\Desktop\backend)
+02:51:12 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
+02:51:15 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
+02:51:15 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
+02:51:15 [main] INFO  c.e.h.l.Backend   Started Backend in 3.646 seconds (JVM running for 4.732)
+02:51:36 [http-nio-6060-exec-1] INFO  c.z.h.HikariDataSource   HikariPool-1 - Starting...
+02:51:36 [http-nio-6060-exec-1] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+02:51:36 [http-nio-6060-exec-1] INFO  c.z.h.HikariDataSource   HikariPool-1 - Start completed.
+02:51:59 [http-nio-6060-exec-1] INFO  c.e.h.l.i.LogInterceptor   service finished, serviceName=com.example.hugh.life.controller.SearchInfoController#searchAction args=[SearchActionArg(userId=0a6a4fac0f2845708c5bfc1be8a25b7b, content=哈哈, type=1)] result=ModelResult(errCode=0, errMsg=成功, data=[]) duration=28077ms
+02:51:59 [Thread-12] INFO  c.z.h.HikariDataSource   HikariPool-1 - Shutdown initiated...
+02:51:59 [Thread-12] INFO  c.z.h.HikariDataSource   HikariPool-1 - Shutdown completed.
+02:52:12 [main] INFO  c.e.h.l.Backend   Starting Backend on LAPTOP-BFTFA9BI with PID 36820 (C:\Users\ASUS\Desktop\backend\target\classes started by ASUS in C:\Users\ASUS\Desktop\backend)
+02:52:12 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
+02:52:14 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
+02:52:14 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
+02:52:15 [main] INFO  c.e.h.l.Backend   Started Backend in 3.759 seconds (JVM running for 4.86)
+02:52:43 [http-nio-6060-exec-2] INFO  c.z.h.HikariDataSource   HikariPool-1 - Starting...
+02:52:43 [http-nio-6060-exec-2] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+02:52:44 [http-nio-6060-exec-2] INFO  c.z.h.HikariDataSource   HikariPool-1 - Start completed.
+02:53:52 [HikariPool-1 housekeeper] WARN  c.z.h.p.HikariPool   HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m8s321ms335µs124ns).
+02:53:52 [http-nio-6060-exec-2] INFO  c.e.h.l.i.LogInterceptor   service finished, serviceName=com.example.hugh.life.controller.SearchInfoController#searchAction args=[SearchActionArg(userId=0a6a4fac0f2845708c5bfc1be8a25b7b, content=哈哈, type=1)] result=ModelResult(errCode=0, errMsg=成功, data=[]) duration=91678ms
+02:53:52 [Thread-12] INFO  c.z.h.HikariDataSource   HikariPool-1 - Shutdown initiated...
+02:53:52 [Thread-12] INFO  c.z.h.HikariDataSource   HikariPool-1 - Shutdown completed.
+02:53:58 [main] INFO  c.e.h.l.Backend   Starting Backend on LAPTOP-BFTFA9BI with PID 36100 (C:\Users\ASUS\Desktop\backend\target\classes started by ASUS in C:\Users\ASUS\Desktop\backend)
+02:53:58 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
+02:54:01 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
+02:54:01 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
+02:54:01 [main] INFO  c.e.h.l.Backend   Started Backend in 3.412 seconds (JVM running for 4.218)
+02:56:38 [http-nio-6060-exec-1] INFO  c.z.h.HikariDataSource   HikariPool-1 - Starting...
+02:56:38 [http-nio-6060-exec-1] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+02:56:38 [http-nio-6060-exec-1] INFO  c.z.h.HikariDataSource   HikariPool-1 - Start completed.
+02:56:38 [http-nio-6060-exec-1] INFO  c.e.h.l.i.LogInterceptor   service finished, serviceName=com.example.hugh.life.controller.SearchInfoController#searchAction args=[SearchActionArg(userId=0a6a4fac0f2845708c5bfc1be8a25b7b, content=哈哈, type=1)] result=ModelResult(errCode=0, errMsg=成功, data=[RecommendUsuallyResult(id=fbd5ad0a245d4a758f41a0cfba4d1b69, type=1, coverUrl=https://img3.doubanio.com/view/subject/m/public/s8895481.jpg, detailUrl=https://book.douban.com/subject/6827375/, peopleContent=作者：哈哈, otherContent=null, title=名花虽有主 我来松松土, rate=0.0), RecommendUsuallyResult(id=a153fd4bbcc84488b7275777ae88901d, type=1, coverUrl=https://img1.doubanio.com/view/subject/m/public/s28012848.jpg, detailUrl=https://book.douban.com/subject/4438125/, peopleContent=作者：哈哈, otherContent=null, title=世界幽默经典:情爱幽默, rate=0.0), RecommendUsuallyResult(id=42a0c3277a20410a93cb9dc4eaf9e896, type=1, coverUrl=https://img3.doubanio.com/view/subject/m/public/s9062073.jpg, detailUrl=https://book.douban.com/subject/10582223/, peopleContent=作者：哈哈, otherContent=null, title=人人都爱囧笑话, rate=0.0)]) duration=1504ms
+02:56:42 [main] INFO  c.e.h.l.Backend   Starting Backend on LAPTOP-BFTFA9BI with PID 29140 (C:\Users\ASUS\Desktop\backend\target\classes started by ASUS in C:\Users\ASUS\Desktop\backend)
+02:56:42 [main] INFO  c.e.h.l.Backend   The following profiles are active: dev
+02:56:45 [main] INFO  c.e.h.l.r.RedisConfig   JedisPool注入成功！！
+02:56:45 [main] INFO  c.e.h.l.r.RedisConfig   redis地址：localhost:6379
+02:56:45 [main] INFO  c.e.h.l.Backend   Started Backend in 3.545 seconds (JVM running for 4.335)
+02:56:55 [http-nio-6060-exec-2] ERROR c.e.h.l.i.LogInterceptor   service exception, serviceName=com.example.hugh.life.controller.SearchInfoController#searchAction args=[SearchActionArg(userId=0a6a4fac0f2845708c5bfc1be8a25b7b, content=哈哈, type=1)] duration=5359ms exception:org.jboss.netty.channel.ConnectTimeoutException: connection timed out: api.douban.com/154.8.131.172:443
+ [9 skipped]
+	... 8 common frames omitted
+Wrapped by: java.net.ConnectException: connection timed out: api.douban.com/154.8.131.172:443
+	at com.ning.http.client.providers.netty.request.NettyConnectListener.onFutureFailure(NettyConnectListener.java:147)
+	... 13 common frames omitted
+Wrapped by: java.util.concurrent.ExecutionException: java.net.ConnectException: connection timed out: api.douban.com/154.8.131.172:443
+	at com.ning.http.client.providers.netty.future.NettyResponseFuture.abort(NettyResponseFuture.java:228)
+	at com.ning.http.client.providers.netty.request.NettyConnectListener.onFutureFailure(NettyConnectListener.java:151)
+	at com.ning.http.client.providers.netty.request.NettyConnectListener.operationComplete(NettyConnectListener.java:159)
+ [12 skipped]
+	... 1 common frames omitted
+Wrapped by: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.net.ConnectException: connection timed out: api.douban.com/154.8.131.172:443
+	at com.example.hugh.life.commmon.exception.InlineException.wrap(InlineException.java:16)
+	at com.example.hugh.life.commmon.util.HttpClientUtil.doGet(HttpClientUtil.java:77)
+	at com.example.hugh.life.service.manager.BookManager.bookList(BookManager.java:22)
+	at com.example.hugh.life.service.impl.SearchInfoServiceImpl.searchAction(SearchInfoServiceImpl.java:293)
+	at com.example.hugh.life.controller.SearchInfoController.searchAction(SearchInfoController.java:76)
+	at com.example.hugh.life.interceptor.LogInterceptor.invoke(LogInterceptor.java:17) [4 skipped]
+	at com.example.hugh.life.interceptor.UserInterceptor.invoke(UserInterceptor.java:61) [1 skipped]
+	at java.lang.reflect.Method.invoke(Method.java:498) [8 skipped]
+ [50 skipped]
 
-14:42:01 [main] WARN  o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer   
+02:56:55 [http-nio-6060-exec-2] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet]   Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.net.ConnectException: connection timed out: api.douban.com/154.8.131.172:443] with root causeorg.jboss.netty.channel.ConnectTimeoutException: connection timed out: api.douban.com/154.8.131.172:443
+ [9 skipped]
 
-Found multiple occurrences of org.json.JSONObject on the class path:
-
-	jar:file:/C:/Users/LKB/.m2/repository/org/json/json/20170516/json-20170516.jar!/org/json/JSONObject.class
-	jar:file:/C:/Users/LKB/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
-
-You may wish to exclude one of them to ensure predictable runtime behavior
-
-14:42:01 [main] INFO  c.e.p.y.UserTests   Starting UserTests on LKB with PID 26436 (started by LKB in F:\life\backend)
-14:42:01 [main] INFO  c.e.p.y.UserTests   The following profiles are active: dev
-14:42:01 [main] WARN  o.s.w.c.s.GenericWebApplicationContext   Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'application': Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javafx.application.Application]: Is it an abstract class?; nested exception is java.lang.InstantiationException
-14:42:01 [main] ERROR o.s.b.SpringApplication   Application run failedjava.lang.InstantiationException: null
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) [1 skipped]
- [46 skipped]
-	... 45 common frames omitted
-Wrapped by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [javafx.application.Application]: Is it an abstract class?; nested exception is java.lang.InstantiationException
- [46 skipped]
-	... 43 common frames omitted
-Wrapped by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'application': Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javafx.application.Application]: Is it an abstract class?; nested exception is java.lang.InstantiationException
- [44 skipped]
-
-14:42:01 [main] ERROR o.s.t.c.TestContextManager   Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@25a6944c] to prepare test instance [com.example.phoebe.youtiao.UserTests@5e1fa5b1]java.lang.InstantiationException: null
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) [1 skipped]
- [46 skipped]
-	... 45 common frames omitted
-Wrapped by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [javafx.application.Application]: Is it an abstract class?; nested exception is java.lang.InstantiationException
- [46 skipped]
-	... 43 common frames omitted
-Wrapped by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'application': Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javafx.application.Application]: Is it an abstract class?; nested exception is java.lang.InstantiationException
- [44 skipped]
-	... 27 common frames omitted
-Wrapped by: java.lang.IllegalStateException: Failed to load ApplicationContext
- [28 skipped]
-
+02:57:15 [http-nio-6060-exec-4] INFO  c.z.h.HikariDataSource   HikariPool-1 - Starting...
+02:57:15 [http-nio-6060-exec-4] WARN  c.z.h.u.DriverDataSource   Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+02:57:16 [http-nio-6060-exec-4] INFO  c.z.h.HikariDataSource   HikariPool-1 - Start completed.
+02:57:16 [http-nio-6060-exec-4] INFO  c.e.h.l.i.LogInterceptor   service finished, serviceName=com.example.hugh.life.controller.SearchInfoController#searchAction args=[SearchActionArg(userId=0a6a4fac0f2845708c5bfc1be8a25b7b, content=哈哈, type=1)] result=ModelResult(errCode=0, errMsg=成功, data=[RecommendUsuallyResult(id=fbd5ad0a245d4a758f41a0cfba4d1b69, type=1, coverUrl=https://img3.doubanio.com/view/subject/m/public/s8895481.jpg, detailUrl=https://book.douban.com/subject/6827375/, peopleContent=作者：哈哈, otherContent=null, title=名花虽有主 我来松松土, rate=0.0), RecommendUsuallyResult(id=a153fd4bbcc84488b7275777ae88901d, type=1, coverUrl=https://img1.doubanio.com/view/subject/m/public/s28012848.jpg, detailUrl=https://book.douban.com/subject/4438125/, peopleContent=作者：哈哈, otherContent=null, title=世界幽默经典:情爱幽默, rate=0.0), RecommendUsuallyResult(id=42a0c3277a20410a93cb9dc4eaf9e896, type=1, coverUrl=https://img3.doubanio.com/view/subject/m/public/s9062073.jpg, detailUrl=https://book.douban.com/subject/10582223/, peopleContent=作者：哈哈, otherContent=null, title=人人都爱囧笑话, rate=0.0)]) duration=1123ms

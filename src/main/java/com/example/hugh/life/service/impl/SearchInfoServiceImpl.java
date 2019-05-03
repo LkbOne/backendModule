@@ -291,14 +291,15 @@ public class SearchInfoServiceImpl implements SearchInfoService {
         if(arg.getType() == 1){
             List<BookInfoEntity> bookInfoList = Lists.newArrayList();
             BookManager.BookList bookList = bookManager.bookList(arg.getContent(), 0, 3);
-            keyWordManager.keyWord(bookList);
+            bookInfoList = keyWordManager.keyWord(bookList);
             if(null != bookList && CollectionUtils.isNotEmpty(bookList.getBooks())){
-                List<BookManager.BookList.Book> bookEntity = bookList.getBooks();
-                for (BookManager.BookList.Book book : bookEntity) {
-                    BookInfoEntity entity = keyWordManager.setKeyWord(book);
-                    bookInfoList.add(entity);
-                }
+//                List<BookManager.BookList.Book> bookEntity = bookList.getBooks();
+//                for (BookManager.BookList.Book book : bookEntity) {
+//                    BookInfoEntity entity = keyWordManager.setKeyWord(book);
+//                    bookInfoList.add(entity);
+//                }
                 results = recommendManager.doSetResult(Lists.newArrayList(), bookInfoList);
+                System.out.println();
             }
         }else if(arg.getType() == 2){
             List<MovieInfoEntity> movieInfoList = movieInfoDao.listByLikeTitle(arg.getContent(), 3);

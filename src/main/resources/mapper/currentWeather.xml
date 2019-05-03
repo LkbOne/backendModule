@@ -38,12 +38,9 @@
     </insert>
 
     <select id="listInfo" parameterType="map" resultType="com.example.hugh.life.api.dto.ListInfoDto">
-        select l.longitude, l.latitude , cw.weather -> '$.HeWeather6[0].now.tmp' as tmp
-        from location as l
-        inner join
-        current_weather as cw
-        on l.id = cw.lid
-        where l.uid = #{uid}
+        select lc.longitude, lc.latitude, cw.weather -> '$.HeWeather6[0].now.tmp' as tmp
+        from current_weather as cw, location as lc
+        where cw.lid=lc.id and lc.uid = #{uid}
     </select>
 
     <!--<select id="listAndLimitEntity" parameterType="map" resultType="BaseResultMap">-->
