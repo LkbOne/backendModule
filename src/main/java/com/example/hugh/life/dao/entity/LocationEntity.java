@@ -11,4 +11,5 @@ public class LocationEntity {
     Double longitude;
     Double latitude;
     Date createTime;
+    Integer weathered;
 }

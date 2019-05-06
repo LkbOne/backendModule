@@ -18,4 +18,12 @@ public interface BookInfoDao {
     List<BookInfoEntity> listByLikeTitle(@Param("content") String content, @Param("topN") Integer topN);
 
     List<BookInfoEntity> getOtherPeopleUser(@Param("userId") String userId);
+
+    List<BookInfoEntity> getTheCommonLikePeople(@Param("userId") String userId);
+
+    List<String> getBookInfoId(@Param("userId") String userId);
+
+    String getTagsIdByUserId(@Param("userId")  String userId);
+
+    List<BookInfoEntity> getBookInfoByTags(@Param("tagsId") String tagsId);
 }

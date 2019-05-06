@@ -116,4 +116,30 @@
         select book_info_id from  life.user_middle_book_info  where user_id != #{userId})
     </select>
 
+    <select id="getBookInfoId" parameterType="map" resultType="String">
+        select book_info_id from user_middle_book_info where  user_id = #{userId}
+    </select>
+
+    <select id="getTheCommonLikePeople" parameterType="map" resultMap="BaseResultMap">
+        select * from book_info where id in(
+        select book_info_id from user_middle_book_info
+        where user_id in(
+        select DISTINCT user_id from user_middle_book_info
+        where book_info_id in(
+        select book_info_id from user_middle_book_info
+        where user_id = #{userId})
+        and user_id != #{userId})
+        )
+    </select>
+
+    <select id="getTagsIdByUserId" parameterType="map" resultType="String">
+        select distinct tags_id from tags_middle_book_info as tmbi
+        where book_info_id in
+        (select book_info_id from user_middle_book_info
+        where user_id=#{userId} order by count desc) limit 1
+    </select>
+
+    <select id="getBookInfoByTags"  parameterType="map" resultMap="BaseResultMap">
+        select *from book_info where id in (select book_info_id from tags_middle_book_info where tags_id = #{tagsId}) limit 10;
+    </select>
 </mapper>

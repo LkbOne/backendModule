@@ -18,4 +18,10 @@ public interface LocationDao {
 
     List<LocationEntity> queryLocationByUidLimit(@Param("uid") String uid, @Param("limit") Integer limit);
     List<String> queryAllUid();
+
+    List<LocationEntity> queryBywWeathered(@Param("weathered") Integer weathered);
+
+    boolean update(LocationEntity entity);
+
+    List<LocationEntity> queryByLimit(@Param("uid") String uid);
 }

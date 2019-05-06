@@ -13,4 +13,6 @@ public interface CurrentWeatherDao {
     List<CurrentWeatherEntity> listAndLimitEntity(@Param("lid") String lid, @Param("limit") Integer limit);
 
     List<ListInfoDto> listInfo(@Param("uid") String uid);
+
+    String listInfoByLimit(@Param("lid") String lid);
 }

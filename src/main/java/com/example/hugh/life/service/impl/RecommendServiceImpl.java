@@ -20,7 +20,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class RecommendServiceImpl implements RecommendService {
@@ -47,17 +50,37 @@ public class RecommendServiceImpl implements RecommendService {
     RecommendManager recommendManager;
     @Override
     public ModelResult simpleRecommend(SimpleRecommendArg arg) {
-//        List<RecommendUsuallyResult> results = doSetLocation(arg);
         List<RecommendUsuallyResult> results = doSetLocation(arg);
         if(CollectionUtils.isEmpty(results)){
             //随便推荐
-            List<MovieInfoEntity> movieList = movieInfoDao.getMovieInfoExceptUserId(arg.getUserId(), 3);
-            List<BookInfoEntity> bookInfoList = bookInfoDao.getBookInfoExceptUserId(arg.getUserId(),3);
+            List<MovieInfoEntity> movieListTmp = movieInfoDao.getMovieInfoExceptUserId(arg.getUserId(), 100);
+            List<BookInfoEntity> bookInfoListTmp = bookInfoDao.getBookInfoExceptUserId(arg.getUserId(),100);
+            int mixx = Math.min(movieListTmp.size(), bookInfoListTmp.size());
+            List<Integer> intList = doGetRandom(4, mixx);
+            List<MovieInfoEntity> movieList = Lists.newArrayList();
+            List<BookInfoEntity> bookInfoList = Lists.newArrayList();
+
+            for (Integer integer : intList) {
+                movieList.add(movieListTmp.get(integer));
+                bookInfoList.add(bookInfoListTmp.get(integer));
+            }
             results = recommendManager.doSetResult(movieList, bookInfoList);
         }
         return new ModelResult<>(SHErrorCode.SUCCESS, results);
     }
+    private List<Integer> doGetRandom(int n, int limit){
 
+        HashSet<Integer> numberSet = new HashSet<>();
+        int i = 0;
+        while(i < n){
+            Integer num = (int)(Math.random()*100);
+            if(!numberSet.contains(num) && num < limit) {
+                numberSet.add(num);
+                i++;
+            }
+        }
+        return new ArrayList<>(numberSet);
+    }
     @Autowired
     TencentNLPManager tencentNLPManager;
 
@@ -70,17 +93,77 @@ public class RecommendServiceImpl implements RecommendService {
 
     @Override
     public ModelResult recommendSearchContent(RecommendSearchContentArg arg) {
-        List<BookInfoEntity> bookInfoEntities = bookInfoDao.getOtherPeopleUser(arg.getUserId());
+
+
+        List<BookInfoEntity> bookInfoEntityList = bookInfoDao.getOtherPeopleUser(arg.getUserId());
         List<MovieInfoEntity> movieInfoEntityList =  movieInfoDao.getOtherPeopleUser(arg.getUserId());
-        List<RecommendUsuallyResult> results = recommendManager.doSetResult(movieInfoEntityList, bookInfoEntities);
+        List<RecommendUsuallyResult> results = initAnswear(arg, bookInfoEntityList, movieInfoEntityList);
+
+        if(CollectionUtils.isEmpty(results)){
+            String tagsId = bookInfoDao.getTagsIdByUserId(arg.getUserId());
+            List<BookInfoEntity> bookInfoEntities = Lists.newArrayList();
+            if(StringUtils.isNotBlank(tagsId)){
+                bookInfoEntities = bookInfoDao.getBookInfoByTags(tagsId);
+            }
+
+            List<MovieInfoEntity> movieInfoEntities = Lists.newArrayList();
+            String typesId = movieInfoDao.getTypesIdByUserId(arg.getUserId());
+            if(StringUtils.isNotBlank(tagsId)){
+                movieInfoEntities = movieInfoDao.getMovieInfoByTypes(typesId);
+            }
+            results = initAnswear(arg, bookInfoEntities, movieInfoEntities);
+            if(results.size() > 5) {
+                results = results.subList(0,4);
+            }
+        }
 
         return new ModelResult<>(SHErrorCode.SUCCESS, results);
     }
+    public  List<RecommendUsuallyResult> initAnswear(RecommendSearchContentArg arg, List<BookInfoEntity> bookInfoEntityList, List<MovieInfoEntity> movieInfoEntityList){
+        List<BookInfoEntity> bookInfoEntities = Lists.newArrayList();
+        List<MovieInfoEntity> movieInfoEntities = Lists.newArrayList();
 
+        List<String> bookInfoIdList = bookInfoDao.getBookInfoId(arg.getUserId());
+
+        for (BookInfoEntity bookInfoEntity : bookInfoEntityList) {
+            boolean flag = true;
+            for (String s : bookInfoIdList) {
+                if(bookInfoEntity.getId().equals(s)){
+                    flag = false;
+                    break;
+                }
+            }
+            if(flag){
+                bookInfoEntities.add(bookInfoEntity);
+            }
+        }
+
+        List<String> movieInfoIdList =  movieInfoDao.getMovieInfoId(arg.getUserId());
+        for (MovieInfoEntity movieInfoEntity : movieInfoEntityList) {
+            boolean flag = true;
+            for (String s : movieInfoIdList) {
+                if(movieInfoEntity.getId().equals(s)){
+                    flag = false;
+                    break;
+                }
+            }
+            if(flag){
+                movieInfoEntities.add(movieInfoEntity);
+            }
+        }
+        List<RecommendUsuallyResult> results = recommendManager.doSetResult(movieInfoEntities, bookInfoEntities);
+        return results;
+    }
+
+
+    public void totalPreview(RecommendSearchContentArg arg){
+        List<BookInfoEntity> bookInfoEntityList = bookInfoDao.getTheCommonLikePeople(arg.getUserId());
+        List<String> bookInfoIdList = bookInfoDao.getBookInfoId(arg.getUserId());
+    }
 
     private List<RecommendUsuallyResult> doSetLocation(SimpleRecommendArg arg){
         List<RecommendUsuallyResult> results = Lists.newArrayList();
-        //搞定了从天气，做推荐。
+
         List<LocationEntity> locationList = locationDao.queryLocationByUidLimit(arg.getUserId(), 1);
         List<MovieInfoEntity> movieList = Lists.newArrayList();
         if (CollectionUtils.isNotEmpty(locationList)) {

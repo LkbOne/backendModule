@@ -9,10 +9,14 @@ import com.example.hugh.life.commmon.util.DateUtil;
 import com.example.hugh.life.commmon.util.UUIDUtil;
 import com.example.hugh.life.controller.arg.AddLocationArg;
 import com.example.hugh.life.controller.arg.ListLocationArg;
+import com.example.hugh.life.dao.api.CurrentWeatherDao;
 import com.example.hugh.life.dao.api.LocationDao;
+import com.example.hugh.life.dao.entity.CurrentWeatherEntity;
 import com.example.hugh.life.dao.entity.LocationEntity;
+import com.example.hugh.life.service.manager.HeWeatherManager;
 import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +30,12 @@ public class LocationServiceImpl implements LocationService {
     @Autowired
     LocationDao locationDao;
 
+
+    @Autowired
+    HeWeatherManager heWeatherManager;
+
+    @Autowired
+    CurrentWeatherDao currentWeatherDao;
     @Override
     public ModelResult addLocation(AddLocationArg arg) {
         LocationEntity addLocation = BeanUtil.copy(arg, LocationEntity.class);
@@ -34,6 +44,19 @@ public class LocationServiceImpl implements LocationService {
             log.warn("LocationServiceImpl.addLocation arg:{} addLocation:{}", arg, addLocation);
             return new ModelResult(SHErrorCode.ADD_LOCATION_FAIL);
         }
+
+        String data = heWeatherManager.liveWeather(addLocation.getLongitude(), addLocation.getLatitude());
+        log.warn("data:{}", data);
+        if (StringUtils.isNotBlank(data)) {
+            CurrentWeatherEntity weatherEntity = new CurrentWeatherEntity();
+            weatherEntity.setWeather(data);
+            weatherEntity.setId(UUIDUtil.getUUID());
+            weatherEntity.setLid(addLocation.getId());
+            currentWeatherDao.add(weatherEntity);
+            addLocation.setWeathered(1);
+            locationDao.update(addLocation);
+        }
+
         return new ModelResult(SHErrorCode.SUCCESS);
     }
 

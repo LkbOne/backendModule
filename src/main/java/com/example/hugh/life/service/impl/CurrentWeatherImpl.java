@@ -40,37 +40,38 @@ public class CurrentWeatherImpl implements CurrentWeatherService {
     @Override
     public void queryAllUserCurrentWeather() {
         log.warn("CurrentWeatherImpl.queryAllUserCurrentWeather begin");
-        List<String> uidList = locationDao.queryAllUid();
-        for (String uid : uidList) {
-            List<LocationEntity> locationList = locationDao.queryLocationByUidLimit(uid, 1);
-            if (CollectionUtils.isNotEmpty(locationList)) {
-                LocationEntity locationEntity = locationList.get(0);
+//        List<String> uidList = locationDao.queryAllUid();
+//        for (String uid : uidList) {
+            List<LocationEntity> locationList = locationDao.queryBywWeathered(0);
+            for (LocationEntity locationEntity : locationList) {
                 String data = heWeatherManager.liveWeather(locationEntity.getLongitude(), locationEntity.getLatitude());
+                log.warn("data:{}", data);
                 if (StringUtils.isNotBlank(data)) {
                     CurrentWeatherEntity weatherEntity = new CurrentWeatherEntity();
                     weatherEntity.setWeather(data);
                     weatherEntity.setId(UUIDUtil.getUUID());
                     weatherEntity.setLid(locationEntity.getId());
                     currentWeatherDao.add(weatherEntity);
+                    locationEntity.setWeathered(1);
+                    locationDao.update(locationEntity);
                 }
+
             }
-        }
-        log.warn("CurrentWeatherImpl.queryAllUserCurrentWeather end");
+            log.warn("CurrentWeatherImpl.queryAllUserCurrentWeather end");
+//        }
     }
 
     @Override
     public ModelResult listWeatherInfo(ListWeatherInfoArg arg) {
-        List<ListInfoDto> infoList = currentWeatherDao.listInfo(arg.getUid());
+        List<LocationEntity> infoList = locationDao.queryByLimit(arg.getUid());
         List<ListWeatherInfoResult> resultList = Lists.newArrayList();
-        int i = 0;
-        for (ListInfoDto info : infoList) {
-            if (i > 100) {
-                break;
-            }
-            ListWeatherInfoResult result = BeanUtil.copy(info, ListWeatherInfoResult.class);
-            result.setTmp(Double.valueOf(info.getTmp().substring(1, info.getTmp().length() - 1 )));
+        for (LocationEntity locationEntity : infoList) {
+            ListWeatherInfoResult result = new ListWeatherInfoResult();
+            result.setLatitude(locationEntity.getLatitude());
+            result.setLongitude(locationEntity.getLongitude());
+            String tmp = currentWeatherDao.listInfoByLimit(locationEntity.getId());
+            result.setTmp(Double.valueOf(tmp.substring(1, tmp.length() - 1 )));
             resultList.add(result);
-            i++;
         }
         return new ModelResult<>(SHErrorCode.SUCCESS, resultList);
     }

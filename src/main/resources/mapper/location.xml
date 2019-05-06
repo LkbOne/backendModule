@@ -6,6 +6,7 @@
         <result column="uid" property="uid"/>
         <result column="longitude" property="longitude"/>
         <result column="latitude" property="latitude"/>
+        <result column="weathered" property="weathered"/>
         <result column="create_time" property="createTime"/>
     </resultMap>
 
@@ -15,14 +16,16 @@
         `uid`,
         `longitude`,
         `latitude`,
-        `create_time`
+        `create_time`,
+        `weathered`
         )
         VALUES (
         #{id},
         #{uid},
         #{longitude},
         #{latitude},
-        now()
+        now(),
+        0
         )
     </insert>
     <select id="listLocationByUid" parameterType="map" resultMap="BaseResultMap">
@@ -45,5 +48,21 @@
     </select>
     <select id="queryAllUid" resultType="String">
         select uid from location
+    </select>
+
+    <select id="queryBywWeathered"  parameterType="map" resultMap="BaseResultMap">
+        select *from location where weathered = #{weathered} order by create_time asc
+    </select>
+
+    <update id="update" parameterType="locationEntity">
+        update location
+        <set>
+            `weathered` = #{weathered}
+        </set>
+        where `id` = #{id}
+    </update>
+
+    <select id="queryByLimit"  parameterType="map" resultMap="BaseResultMap">
+        select *from location where uid=#{uid} order by create_time desc limit 100
     </select>
 </mapper>

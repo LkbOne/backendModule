@@ -47,4 +47,9 @@
         <!--select *from current_weather where lid = #{lid}-->
         <!--order by update_time desc  limit #{limit}-->
     <!--</select>-->
+
+    <select id="listInfoByLimit" parameterType="map" resultType="String">
+        select weather -> '$.HeWeather6[0].now.tmp' as tmp from current_weather
+        where lid=#{lid};
+    </select>
 </mapper>

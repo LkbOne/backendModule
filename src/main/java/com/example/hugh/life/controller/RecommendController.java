@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/recommend")
+    @RequestMapping("/recommend")
 @Slf4j
 @CrossOrigin
 public class RecommendController {

@@ -26,4 +26,11 @@ public interface MovieInfoDao {
     List<MovieInfoEntity> listByLikeTitle(@Param("content") String content, @Param("topN") Integer topN);
 
     List<MovieInfoEntity> getOtherPeopleUser(@Param("userId") String userId);
+
+    List<String> getMovieInfoId(@Param("userId") String userId);
+
+
+    String getTypesIdByUserId(@Param("userId")  String userId);
+
+    List<MovieInfoEntity> getMovieInfoByTypes(@Param("typeId") String typeId);
 }
